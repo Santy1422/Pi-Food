@@ -1,0 +1,28 @@
+
+.container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .navRow {
+    width: 100%;
+    padding: 16px;
+  }
+  
+  .sidebarRow {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 10px;
+
+  }
+  
+  .sidebarColumn {
+    width: 10%;
+    padding: 16px;
+  }
+  
+  .recetasColumn {
+    width: 90%;
+    padding: 16px;
+  }

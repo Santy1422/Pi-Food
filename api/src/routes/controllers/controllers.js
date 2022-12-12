@@ -1,6 +1,5 @@
 const axios = require("axios");
-const { Recipe, Diet } = require("../../db.js");
-
+const  {Recipe, Diets}  = require("../../db");
 
 
 //     "results": [{
@@ -37,10 +36,12 @@ const { Recipe, Diet } = require("../../db.js");
 const BuscApi = async () =>{
 
 try{   
-    //const BuscarenApi = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=042ad0b4e08542a5a05ed730d26457c3&number=100&addRecipeInformation=true`)
+ // const BuscarenApi = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=042ad0b4e08542a5a05ed730d26457c3&number=100&addRecipeInformation=true`)
     const BuscarenApi = await axios.get(`https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5`)
 
     let info = await BuscarenApi.data.results?.map((ele) =>{ 
+        
+
         return{
             id: ele.id,
             name: ele.title,
@@ -49,13 +50,14 @@ try{
             image: ele.image,
             dishTypes: ele.dishTypes,
             diets: ele.diets?.map(element => element), 
-            steps: ele.analyzedInstructions[0]?.steps.map((ele2) => {
-                return {
-                    number: ele2.number,
-                    step: ele2.step,
-                } },
+            steps :ele.analyzedInstructions[0]?.steps.map((ele) => `${ele.number} ${ele.step}`).join(" "),
+           // steps: ele.analyzedInstructions[0]?.steps.map((ele2) => {
+             //   return {
+               //     number: ele2.number,
+                 //   step: ele2.step
+                //} },
           
-            ),
+         //   ),
         }
     } ) 
     return info
@@ -70,13 +72,17 @@ const buscarenDb = async () => {
     try{
     const buscardb = await Recipe.findAll({
         include:{
-            model: Diet,
+            model: Diets,
             atributes: ['name'],
             through: {
                 atributes: [],
             }
         }
     })
+    // var dato = JSON.parse(JSON.stringify(dbInfo, null, 2));
+    // dato.forEach((el) => (el.diets = el.diets.map((el) => el.name)));
+
+    // return dato;
     let infodb = await buscardb?.map((ele) => {
     return{
         id: ele.id,
@@ -85,7 +91,7 @@ const buscarenDb = async () => {
         healthScore: ele.healthScore,
         image: ele.image,
         steps: ele.steps,
-        diets: ele.diets?.map(element => element), 
+        diets: ele.diets?.map(element => element.name), 
     }
    }) 
 return infodb
@@ -109,7 +115,7 @@ catch(err) {
 }
 }
 
-//1 funcion GET /recipes?name="...":
+//receta por query y todas si no ahi query
 const rece = async (receta) => { 
 try{
     //const agregarlas =  await info.filter((ele) => ele.name === receta)
@@ -131,20 +137,75 @@ catch(error) {
 }
 }
 
+//buscar receta por id
 const idRece = async (idReceta) =>{
- 
+ try{
  const buscareceta = await dbyApi()
-const receta =  buscareceta.find((ele) => parseInt(ele.id) === parseInt(idReceta))
+const receta =  buscareceta.find((ele) => ele.id == idReceta)
 if(receta) {
     return receta
-} else{
-throw ("Ups, no tenemos una receta con ese id")
+}
+ else throw ("Ups, no tenemos una receta con ese id")
+}
+
+catch(err) {
+    return err
 }
 }
-module.exports = {rece, idRece}
 
-const crearRec = async (name, summary, healthScore, steps, image, dishTypes) => {
+//Mostrar dietas
+const putDietInfo = async () => {
+    const dietTypes = [
+        "gluten free", //
+        "ketogenic", //
+        "lacto ovo vegetarian", //
+        "vegan", //
+        "pescatarian", //
+        "paleolithic", //
+        "primal",//
+        "fodmap friendly", //
+        "whole 30", //
+        "dairy free", //
+    ];
+    dietTypes.forEach((d) => {
+        Diets.findOrCreate({
+            where: {
+                name: d,
+            }
+        })
+    })
+    return Diets.findAll()
 
-
-    
 }
+
+const postRecipe = async (objRecipe) => {
+    try {
+        const { name, summary, healthScore, steps, image, dishTypes, diets } = objRecipe;
+        const recipe = {
+            name,
+            summary,
+            healthScore,
+            steps,
+            image,
+            dishTypes,
+        }
+
+        const dietInfo = await Diets.findAll({
+            where: {
+                name: diets,
+            }
+        })
+        const createRecipe = await Recipe.create(recipe)
+
+        createRecipe.addDiets(dietInfo)
+
+        return Recipe.findAll()
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+ module.exports = {rece, idRece, putDietInfo,  postRecipe}
+

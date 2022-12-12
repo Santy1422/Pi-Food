@@ -1,0 +1,55 @@
+
+.cuadrado{
+    width: 300px; 
+    height: 300px; 
+    background: rgba(0,0,0,0.5);
+    border: 3px;
+    border-color: black;
+    border-radius: 30%;
+
+}
+.centrar{
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+    height: 100%;
+}
+
+.titulo {
+    font: oblique bold 120% cursive;
+    color: rgb(255, 255, 255);
+
+
+}
+.parrafo {
+    font: oblique bold 70% cursive;
+
+}
+.span{
+    font-family: oblique bold 50% cursive;
+    color: rgb(255, 255, 255);
+
+
+}
+.button {
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 6px;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background 0.4s, color 0.4s;
+  }
+  
+  .button:hover {
+    background: white;
+    color: black;
+  }

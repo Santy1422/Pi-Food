@@ -1,5 +1,5 @@
 const axios = require("axios");
-const  {Recipe, Diets}  = require("../../db");
+const  {Recipe, Diets, Users}  = require("../../db");
 
 
 //     "results": [{
@@ -38,9 +38,8 @@ const  {Recipe, Diets}  = require("../../db");
 const BuscApi = async () =>{
 
 try{   
-//  const BuscarenApi = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=042ad0b4e08542a5a05ed730d26457c3&number=100&addRecipeInformation=true`)
+ //const BuscarenApi = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`)
     const BuscarenApi = await axios.get(`https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5`)
-
     let info = await BuscarenApi.data.results?.map((ele) =>{ 
         
 
@@ -209,6 +208,57 @@ const postRecipe = async (objRecipe) => {
     }
 }
 
+const nuevoUsuario = async (newuse) => {
+try{
+    const {usuario, pin} = newuse
+    const newuser = {usuario, pin}
+    const nuevouser = await Users.create(newuse) 
+    return Users.findAll()
 
- module.exports = {rece, idRece, putDietInfo,  postRecipe}
+}
+catch(err){
+    console.log(err)
+}
+
+}
+
+const obtenerTodosLosUsuarios = async () => {
+    try {
+      const resultado = await Users.findAll();
+      return resultado.map((usuario) => {
+        return {
+          usuario: usuario.usuario,
+          pin: usuario.pin,
+        };
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
+  const buscarUsuarioPorNombreYPIN = async (usuario, pin) => {
+    try {
+      const resultado = await Users.findAll({
+        where: {
+          usuario,
+          pin,
+        },
+      });
+  
+      if (resultado.length) {
+        // usuario encontrado
+        return resultado;
+      } else {
+        // usuario no encontrado
+        return "Usuario no encontrado";
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+
+    
+ 
+ module.exports = {rece, idRece, putDietInfo,  postRecipe, nuevoUsuario, obtenerTodosLosUsuarios, buscarUsuarioPorNombreYPIN }
 

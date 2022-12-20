@@ -94,9 +94,8 @@ export const CrearReceta = (props) => {
           <input type="text"
           placeholder="Escribe el nombre de tu receta.."
         name="name"  value={input.name} onChange={(e) => handleChange(e)} />
-                  { errorInput.name && (<p>{errorInput.name}</p>)}
+                  { errorInput.name ? <p>{errorInput.name}</p> : <p> {" "}</p>}
 
-          <br/>
 
           <label className={style.label}>Descripcion:</label>
           <br/>

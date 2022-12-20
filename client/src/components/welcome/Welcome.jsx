@@ -7,7 +7,6 @@ export const Welcome = (props) => {
 
 
     return(
-        <body style={{ backgroundImage: 'url("https://wallpaperaccess.com/full/112605.jpg")' }}>
         <div className={style.centrar}>
         <section className={style.cuadrado}>
         <h1 className={style.titulo}>HENRY FOOD</h1> 
@@ -20,7 +19,6 @@ export const Welcome = (props) => {
         </div>
         </section>
         </div>
-        </body>
     )
 }
 

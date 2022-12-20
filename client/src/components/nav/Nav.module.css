@@ -1,0 +1,46 @@
+.header {   
+  background: rgba(45, 201, 55, 0.921);
+    position: fixed;
+    top: 0;
+    height: 80px;
+    margin-top: -10%;
+    width: 100%;
+    margin: 0;
+    margin-left: -0.8%;
+    }
+
+    .button {
+        background: transparent;
+        border: 2px solid white;
+        border-radius: 6px;
+        color: white;
+        padding: 10px 32px;
+        text-align: center;
+        display: inline-block;
+        font-size: 15px;
+        margin: 10px 2px;
+        cursor: pointer;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: background 0.4s, color 0.4s;
+      }
+      .button:hover {
+        background: white;
+        color: black;
+      }
+      .button2{
+        background: transparent;
+        border: 2px solid white;
+        border-radius: 6px;
+        background: white;
+        color: black;
+       padding: 10px 32px;
+        text-align: center;
+        display: inline-block;
+        font-size: 15px;
+        margin: 10px 2px;
+        cursor: pointer;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: background 0.4s, color 0.4s;
+      }

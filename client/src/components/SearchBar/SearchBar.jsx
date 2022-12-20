@@ -1,29 +1,32 @@
-import React from "react";
-import { useState } from "react";
-import * as actions from "../../redux/actions"
-import { useDispatch } from "react-redux";
+// import React from "react";
+// // import { useState } from "react";
+// import * as actions from "../../redux/actions"
+// import { useDispatch } from "react-redux";
+// // import { useSelector } from "react-redux";
+// import style from "./SearchBar.module.css"
+// import { useSelector } from "react-redux";
+
+// export const SearchBar = () => {
+// const dispatch = useDispatch()
 
 
-export const SearchBar = () => {
+// const recetas2 = useSelector(state => state.filteredProducts)
 
-const [search, setSearch] = useState("")
-const dispatch = useDispatch()
 
-const handleChange =(e) => {
-    e.preventDefault()
-setSearch(e.target.value)
-}
+// const filterByInput = (e) =>{
+//     let input = e.target.value;
+//     dispatch(actions.filterByValue({value: input}))
+//  }
 
-const handleSubmit = (e) => {
-    e.preventDefault()
-    dispatch(actions.BuscarRec(search))
-    dispatch(actions.cambiarPag(1))
+//     return(
 
-}
-    return(
-        <div>
-            <input onChange={handleChange}/>
-            <button onClick={handleSubmit}>Buscar</button>
-        </div>
-    )
-}
+
+//      <div className='control' style={{minWidth: "300px"}}>
+//         <input className={style.Search} onChange={e=> {
+//           //call this method on every change in input
+//             filterByInput(e);
+//         }} style={{width: "30%"}} placeholder='Buscar receta' type='text'/> 
+// {recetas2?.map((ele) => <select> <option>{ele.name}</option> </select>)}
+//      </div>
+//     )
+// }

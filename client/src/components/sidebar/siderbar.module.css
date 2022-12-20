@@ -1,26 +1,48 @@
 .side {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 0.5em;
-    padding: 1.0rem;
-    min-width: 10rem;
-    height: fit-content;
-    background-color: rgba(56, 56, 56, 0.985);
-    color: rgb(208, 207, 207);
-    border-radius: 0.4rem / 0.4rem;
-    width: 10%;
-    padding: 16px;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5em;
+  padding: 1.0rem;
+  min-width: 10rem;
+  background: rgba(45, 201, 55, 0.921);
+  color: rgb(208, 207, 207);
+  border-radius: 0.4rem / 0.4rem;
+  width: 100%;
+  padding: 16px;
+  margin-top: 40%;
+  height: 100%;
+}
+
+.filterConteiner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: bolder;
+}
+.button {
   
-  .filterConteiner {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 0.5rem;
-    font-size: 1.1rem;
-    font-weight: bolder;
-  }
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 10px;
+  color: white;
+  padding: 5px 20px;
+  text-align: center;
+  display: inline-block;
+  font-size: 15px;
+  margin-left: 20%;
+  margin: 10px 2px;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 0.4s, color 0.4s;
+}
+.button:hover {
+  background: white;
+  color: black;
+}

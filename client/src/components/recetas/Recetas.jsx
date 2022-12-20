@@ -5,28 +5,24 @@ import * as actions from "../../redux/actions"
 import {Pagination} from "../Pagination/Pagination.jsx";
 import { useState, useEffect } from "react";
 import { Cargando } from "../Cargando/Cargando";
-import { SinRecetas } from "../Cargando/SinRecetas";
 import style from "./receta.module.css"
 
 export const Recetas = (props) => {
     const dispatch = useDispatch()
 
 const recetas = useSelector(state => state.recetas)  
-// const orden = useSelector(state => state.recetas)  
 const currentPage = useSelector(state => state.currentPage)  
 
 const [loading, setLoading] = useState(false)
 
 
+const recetas2 = useSelector(state => state.filteredProducts)
 
  const [charactersPerPage, setCharactersPerPage] = useState(9); //cuantas recetas x pagina
  const indexOfLastCharacter = currentPage * charactersPerPage; //pagina x cantidad  recetas en pagina
  const indexOfFirsChararacter = indexOfLastCharacter - charactersPerPage;
  const currentCharacters = recetas.slice(indexOfFirsChararacter, indexOfLastCharacter); //agarra el indice del primero y del ultimo pj
 
-//   const paginado = (pageNumber) => {
-//     setCurrentPage(pageNumber)
-//  }
 
 useEffect(() => {
 
@@ -37,16 +33,28 @@ useEffect(() => {
 
     }, 1000); 
   }, []);
+  console.log(recetas2)
 if(!recetas.length){
     return(
         <div>
-            <SinRecetas/>
+            <Cargando/>
             </div>
     )
 }else{
 return (
 <div>
-{!loading && <Cargando/>}
+<br></br>
+<br></br>
+
+<br></br>
+
+<Pagination
+                charactersPerPage={charactersPerPage}
+                recetas={recetas.length}
+                currentPage={currentPage}
+                recetas2={recetas2}
+            />
+
     <section className={style.containerCards}>
      {currentCharacters?.map((ele, index) => (
       <Recetarender 
@@ -59,12 +67,12 @@ return (
        diets={ele.diets}
         createdInDb={ele.createdInDb}/> ))}
      </section>
-     
-     <Pagination
-                charactersPerPage={charactersPerPage}
-                recetas={recetas.length}
-                currentPage={currentPage}
-            />
+     <div>
+                    
+           </div>
+
+    
+
 
             
       </div>

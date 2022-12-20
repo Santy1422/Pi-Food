@@ -1,0 +1,28 @@
+.alrededor{
+    margin-top: 10%;
+    border: 2px solid white;
+    margin-left: 6%;
+    margin-right: 6%;
+    background: rgba(45, 201, 55, 0.217);
+}
+.title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.2;
+        color: #fff;
+          }
+.label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    line-height: 1.2;
+    color: #fff;
+
+}   
+.errores{
+    border: red 5px solid;
+
+}
+.Sinerrores{
+    border: rgb(7, 240, 22) 5px solid;
+
+}

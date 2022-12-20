@@ -2,7 +2,7 @@ import React from "react";
 import * as actions from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-
+import style from "./DesAsc.module.css"
 
 
 export const DesAsc = () => {
@@ -25,7 +25,7 @@ const HandleSort = (e) =>{
 }
 
     return (
-        <div>
+        <div className={style.box}>
 <select onChange={ e => HandleSort(e)}>
     <option value ="asc">Ascendente</option>
     <option value ="desc">Descendente</option>

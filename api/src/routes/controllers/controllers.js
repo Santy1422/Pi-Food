@@ -33,10 +33,12 @@ const  {Recipe, Diets}  = require("../../db");
 
 
 //mapeo la api
+
+
 const BuscApi = async () =>{
 
 try{   
- // const BuscarenApi = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=042ad0b4e08542a5a05ed730d26457c3&number=100&addRecipeInformation=true`)
+//  const BuscarenApi = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=042ad0b4e08542a5a05ed730d26457c3&number=100&addRecipeInformation=true`)
     const BuscarenApi = await axios.get(`https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5`)
 
     let info = await BuscarenApi.data.results?.map((ele) =>{ 
@@ -48,7 +50,7 @@ try{
             summary: ele.summary,
             healthScore: ele.healthScore,
             image: ele.image,
-            dishTypes: ele.dishTypes,
+            dishTypes: ele.dishTypes?.map(ele => ele),
             diets: ele.diets?.map(element => element), 
             steps :ele.analyzedInstructions[0]?.steps.map((ele) => `${ele.number} ${ele.step}`).join(" "),
            // steps: ele.analyzedInstructions[0]?.steps.map((ele2) => {
@@ -114,6 +116,7 @@ catch(err) {
     return err
 }
 }
+
 
 //receta por query y todas si no ahi query
 const rece = async (receta) => { 

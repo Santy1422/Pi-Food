@@ -55,12 +55,24 @@ export const OrdPorNombre = (payload)=> {
      type: CAMBIAR_PAGINA,
     payload: Pagenumber++
     } }
+    export const cambiarPag2 = (Pagenumber) => {
+        return{
+         type: CAMBIAR_PAGINA,
+        payload: Pagenumber--
+        } }
     export const filterH = (payload)=> {
         return {
             type: FILTRO_SCORE,
             payload,
           };
      } 
+    //  export const filterByValue = (payload)=> {
+    //     return {
+    //         type: FILTER_BY_VALUE,
+    //         payload,
+    //       };
+    //  }  
+ 
 
 
      export const postRecipes = (payload) => {

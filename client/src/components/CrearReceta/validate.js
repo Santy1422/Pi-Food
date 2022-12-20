@@ -1,4 +1,6 @@
-const validate = (input) =>{
+const validate = (input, recetas) =>{
+
+
     var nombre = /^[a-zA-Z ]{1,30}$/;
     var steps = /^[a-zA-Z0-9 ]{1,500}$/;
 
@@ -11,6 +13,8 @@ let errorInput = {
 
 if(!input.name) errorInput.name = "Se requiere un nombre para la receta"
 if(!nombre.test(input.name))  errorInput.name='El nombre de tu receta debe ser con letras de A la Z'
+const repetidas = recetas.find((ele) => ele.name == input.name)
+if(repetidas)  errorInput.name='Ups, la receta ya existe en nuestra base de datos.'
 
 if(!input.healthScore) errorInput.healthScore = "Por favor introduce un puntaje nutricional"
 if(!num10a100.test(input.healthScore))  errorInput.healthScore='El puntaje nutricial debe ser del 10 al 100'

@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import * as actions from "../../redux/actions"
 import style from "./siderbar.module.css"
-
+import { NormalSearch } from "../SearchBar/NormalSearch";
 export const Sidebar = (props) =>{
 
 const dispatch = useDispatch()    
@@ -16,12 +16,21 @@ const handleClick = (event) => {
     dispatch(actions.TraerRec())
 }
     return (
+        <div>
         <div className={style.side}>
         <div className={style.filterConteiner}>
-            <Dietas/>
+            <NormalSearch/>
+            <span>Ordenar Alfabeticamente</span>
+            <hr></hr>
             <DesAsc/>
+            <span>Puntaje nutricional</span>
+            <hr></hr>
+
             <Health/>
-            <button onClick={(event) => handleClick(event)}><NavLink to="/home"><p>Reset</p></NavLink></button>
+            <Dietas/>
+            <NavLink to="/home"> <button className={style.button} onClick={(event) => handleClick(event)}><p>Limpiar filtros</p></button></NavLink>
+
+        </div>
         </div>
         </div>
 

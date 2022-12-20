@@ -1,26 +1,38 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import style from "./recetarender.module.css"
+import Style from "./recetarender.module.css"
+import {Cargando} from "../Cargando/Cargando"
 export const Recetarender =(props) => {
 
 
 
-    return (
-        <card className={style.card}>
-          <div key={props.id}>
-            <Link to={"/detail/" + props.id}>
-              <img className={style.img} src={props.image} alt={props.name} />
-            </Link>
-            <h2 className={style.title}>{props.name}</h2>
-            <p>{props.healthScore}</p>
-            <ul className={style.ul}>
+      return props.name ? (
+        <div className={Style.card}>
+          <img className={Style.image} src={props.image} alt="imagen" />
+          <hr></hr>
+
+          <h2 className={Style.title}>{props.name}</h2>
+          <hr></hr>
+          <div key={props.id} className={Style.cardbody}>
+            <p className={Style.cardsubtitle}>{props.healthScore}</p>
+            <ul className={Style.cardinfo}>
               {props.diets?.map((element, index) => (
-                <button className={style.dietas} key={index}>
+                <ol className={Style.ol} key={index}>
                   {element}
-                </button>
+                </ol>
               ))}
             </ul>
+            <Link to={"/detail/" + props.id}>
+              <button className={Style.cardbtn}>informacion</button>
+            </Link>{" "}
           </div>
-        </card>
+        </div>
+      ) : (
+        <Cargando />
       );
     };
+
+
+
+
+    

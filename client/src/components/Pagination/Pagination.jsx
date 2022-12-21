@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import "./pagination.modules.css"
 
 export const Pagination = (props) => {
- const {charactersPerPage, recetas, recetas2 } = props
+ const {charactersPerPage, recetas } = props
  const dispatch = useDispatch()
 
  const currentPage = useSelector(state => state.currentPage)  

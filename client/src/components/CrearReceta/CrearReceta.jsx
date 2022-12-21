@@ -101,21 +101,21 @@ export const CrearReceta = (props) => {
           <br/>
           
           <textarea type="text" name="summary" placeholder="Descripcion de tu receta" value={input.summary} onChange={(e) => handleChange(e)} />
-          { errorInput.summary && (<p>{errorInput.summary}</p>)}
+          { input.summary.length ? errorInput.summary && (<p>{errorInput.summary}</p> ) : <p></p>}
           <br/>
 
           <label className={style.label}>Puntaje nutricional:</label>
           <br/>
 
           <input type="text" name="healthScore" placeholder="¿Que puntaje nutricional posee?" value={input.healthScore} onChange={(e) => handleChange(e)} />
-          { errorInput.healthScore && (<p>{errorInput.healthScore}</p>)}
+          { input.healthScore.length ? errorInput.healthScore && (<p>{errorInput.healthScore}</p>) : <p></p>}
           <br/>
 
           <label className={style.label}>Imagen:</label>
           <br/>
 
           <input type="text" name="image" placeholder="Por favor un enlace con la foto de tu receta" value={input.image} onChange={(e) => handleChange(e)} />
-          { errorInput.image && (<p>{errorInput.image}</p>)}
+          { input.image.length ? errorInput.image && (<p>{errorInput.image}</p>) : <p></p>}
 
 
 

@@ -16,8 +16,6 @@ const currentPage = useSelector(state => state.currentPage)
 const [loading, setLoading] = useState(false)
 
 
-const recetas2 = useSelector(state => state.filteredProducts)
-
  const [charactersPerPage, setCharactersPerPage] = useState(9); //cuantas recetas x pagina
  const indexOfLastCharacter = currentPage * charactersPerPage; //pagina x cantidad  recetas en pagina
  const indexOfFirsChararacter = indexOfLastCharacter - charactersPerPage;
@@ -31,9 +29,8 @@ useEffect(() => {
 
         setLoading(true)
 
-    }, 1000); 
+    }, ); 
   }, []);
-  console.log(recetas2)
 if(!recetas.length){
     return(
         <div>
@@ -52,7 +49,6 @@ return (
                 charactersPerPage={charactersPerPage}
                 recetas={recetas.length}
                 currentPage={currentPage}
-                recetas2={recetas2}
             />
 
     <section className={style.containerCards}>

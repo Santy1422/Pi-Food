@@ -10,13 +10,13 @@ export const TraerRec = () => {
     
 }
 
-export const BuscarRec = (nombre) => {
+export const BuscarRec = (payload) => {
+    return {
+        type: BUSCAR_RECETA,
+        payload: payload
+      };
+ }   
 
-    return async (dispatch) => {
-        let receta = await axios.get(`http://localhost:3001/recipes?name=${nombre}`)
-        return dispatch({type: BUSCAR_RECETA, payload: receta.data})
-    }
-}
 export const RecetaID = (id) => {
 
     return async (dispatch) => {
@@ -35,7 +35,7 @@ export const TraerDietas = () => {
 export const filterByDiets = (payload) => {
     return {
       type: FILTER_DIETS,
-      payload,
+      payload: payload
     };
   };
 
@@ -66,12 +66,7 @@ export const OrdPorNombre = (payload)=> {
             payload,
           };
      } 
-    //  export const filterByValue = (payload)=> {
-    //     return {
-    //         type: FILTER_BY_VALUE,
-    //         payload,
-    //       };
-    //  }  
+
  
 
 

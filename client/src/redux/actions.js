@@ -10,12 +10,6 @@ export const TraerRec = () => {
     
 }
 
-export const BuscarRec = (payload) => {
-    return {
-        type: BUSCAR_RECETA,
-        payload: payload
-      };
- }   
 
 export const RecetaID = (id) => {
 

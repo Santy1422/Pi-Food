@@ -1,7 +1,7 @@
 const validate = (input, recetas) =>{
 
 
-    var nombre = /^[a-zA-Z ]{1,30}$/;
+    var nombre =  /^[^\s][\w\d\u4e00-\u9fa5]+$/;
     var steps = /^[a-zA-Z0-9 ]{1,500}$/;
 
     var num10a100 = /^[0-9]{1,2}$/;

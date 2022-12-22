@@ -12,7 +12,6 @@ export const CrearReceta = (props) => {
   const recetas = useSelector((state) => state.recetas);
 
   const history = useHistory();
-
   const [input, setInput] = useState({
     name: "",
     summary: "",
@@ -62,8 +61,7 @@ export const CrearReceta = (props) => {
 }
   const handleChange = (event) => {
     setInput({...input,
-        [event.target.name]: event.target.value,
-    })
+        [event.target.name]: event.target.value,})
     setErrorInput(validate({...input,
       [event.target.name]: event.target.value,}, recetas))
 }  
@@ -151,7 +149,6 @@ export const CrearReceta = (props) => {
 
           <label className={style.label}>Pasos de preparacion:</label>
           <br/>
-
           <textarea type="text" name="steps" className={style.textaerea} placeholder="Pasos para realizar la receta" value={input.steps} onChange={(e) => handleChange(e)} />
           { errorInput.steps && (<p>{errorInput.steps}</p>)}
         </div>

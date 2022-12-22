@@ -1,17 +1,14 @@
 import React from "react";
 import * as actions from "../../../redux/actions";
-import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import { useDispatch } from "react-redux";
 import style from "./DesAsc.module.css"
 
 
 export const DesAsc = () => {
 
-const currentPage = useSelector(state => state.currentPage)  
 
     const dispatch = useDispatch();
 
-const [order, setOrder] = useState(``)
 
 
 const HandleSort = (e) =>{
@@ -19,14 +16,12 @@ const HandleSort = (e) =>{
     dispatch(actions.OrdPorNombre(e.target.value))
     dispatch(actions.cambiarPag(1))
 
-
-    setOrder(`Ordered by ${e.target.value}`)
-
 }
 
     return (
         <div className={style.box}>
 <select onChange={ e => HandleSort(e)}>
+<option selected disabled>Alfabeticamente</option>
     <option value ="asc">Ascendente</option>
     <option value ="desc">Descendente</option>
 

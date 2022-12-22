@@ -6,14 +6,14 @@ import {Pagination} from "../Pagination/Pagination.jsx";
 import { useState, useEffect } from "react";
 import { Cargando } from "../Cargando/Cargando";
 import style from "./receta.module.css"
+import { SinRecetas } from "../Cargando/SinRecetas";
 
 export const Recetas = (props) => {
     const dispatch = useDispatch()
 
+const [loading, setLoading] = useState(true)    
 const recetas = useSelector(state => state.recetas)  
 const currentPage = useSelector(state => state.currentPage)  
-
-const [loading, setLoading] = useState(false)
 
 
  const [charactersPerPage, setCharactersPerPage] = useState(8); //cuantas recetas x pagina
@@ -21,23 +21,15 @@ const [loading, setLoading] = useState(false)
  const indexOfFirsChararacter = indexOfLastCharacter - charactersPerPage;
  const currentCharacters = recetas.slice(indexOfFirsChararacter, indexOfLastCharacter); //agarra el indice del primero y del ultimo pj
 
+ useEffect(() => {
+    dispatch(actions.TraerRec());
+    const timer = setTimeout(() => {
+        setLoading(false)
 
-useEffect(() => {
-
-    setTimeout(() => {
-        dispatch(actions.TraerRec());
-
-        setLoading(true)
-
-    }, ); 
+    }, 3000);  
+    return () => clearTimeout(timer);
   }, []);
-if(!recetas.length){
-    return(
-        <div>
-            <Cargando/>
-            </div>
-    )
-}else{
+
 return (
 <div>
 <br></br>
@@ -49,9 +41,9 @@ return (
                 charactersPerPage={charactersPerPage}
                 recetas={recetas.length}
                 currentPage={currentPage}
-            />
+         />
 
-    <section className={style.containerCards}>
+   {!loading ? !recetas.length ? <SinRecetas/> : <section className={style.containerCards}>
      {currentCharacters?.map((ele, index) => (
       <Recetarender 
      id= {ele.id}
@@ -63,14 +55,11 @@ return (
        diets={ele.diets}
         createdInDb={ele.createdInDb}/> ))}
      </section>
+     : <Cargando/> }
      <div>
                     
            </div>
-
-    
-
-
             
       </div>
 )}
-}
+

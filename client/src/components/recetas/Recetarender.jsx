@@ -1,12 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Style from "./recetarender.module.css"
-import {Cargando} from "../Cargando/Cargando"
+
+
 export const Recetarender =(props) => {
-
-
-
-      return props.name ? (
+      return  (
+        
         <div className={Style.card}>
           <img className={Style.image} src={props.image} alt="imagen" />
           <hr></hr>
@@ -29,8 +28,9 @@ export const Recetarender =(props) => {
             </Link>{" "}
           </div>
         </div>
-      ) : (
-        <Cargando />
+        
+     
+        
       );
     };
 

@@ -41,12 +41,7 @@ switch(action.type){
                 
 
             }  
-        case "BUSCAR_RECETA": //por si me piden la de axios
-          return {
-            ...state,
-            recetas: [...action.payload]
-   
-           }
+
     case "TRAER_DIETAS":
             return{
                 ...state,
@@ -63,49 +58,36 @@ switch(action.type){
         recetas: [...action.payload]
        }
     case "ORDENAR_POR_NOMBRE": 
-
-    const sortedLetter= action.payload === 'asc' ?
-    state.recetas.sort(function(a,b){
-        if (a.name > b.name)  return 1
-        if (a.name < b.name)  return -1
-        return 0
-    }) : 
-    state.recetas.sort(function(a,b){
-        if (a.name > b.name) return -1
-        if (a.name < b.name) return 1
-         return 0
-    })
-return {
-    ...state,
-    recetas: sortedLetter,
-    currentPage: 2
-
-}
+    
+    
+    const allRecipe = [...state.recetas];
+    const sortedLetter = allRecipe.sort((a, b) => {
+      if (action.payload === "A-Z") {
+        return a.name.localeCompare(b.name);
+      } else {
+        return b.name.localeCompare(a.name);
+      }
+    });
+    return {
+      ...state,
+      recetas: sortedLetter,
+      currentPage: 2,
+    };
 
 case FILTRO_SCORE:
-    const allRecipes3 = [...state.recetas]
-    const orderByHs =
-        action.payload === "maximo"
-            ? allRecipes3.sort((a, b) => {
-                if (a.healthScore < b.healthScore) return 1;
-                if (a.healthScore > b.healthScore) return -1;
-                return 0
-            })
-
-            : allRecipes3.sort((a, b) => {
-                if (a.healthScore > b.healthScore) return 1;
-                if (a.healthScore < b.healthScore) return -1;
-                return 0
-            })
-
-    return {
-        ...state,
-
-        recetas: orderByHs,
-
-                currentPage: 2
-
+    let allRecipes = [...state.recetas]; 
+    let orderByHs; 
+    if (action.payload === "maximo") {
+      orderByHs = allRecipes.sort((a, b) => b.healthScore - a.healthScore);
+    } else {
+      orderByHs = allRecipes.sort((a, b) => a.healthScore - b.healthScore);
     }
+    return {
+      ...state,
+      recetas: orderByHs, 
+      currentPage: 2,
+    };
+
 
 
 

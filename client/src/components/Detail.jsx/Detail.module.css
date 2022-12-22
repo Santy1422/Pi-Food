@@ -1,4 +1,20 @@
-.fondo{
-background: rgba(0,0,0,0.9);
+body{
+    color: rgb(0, 0, 0);
+
+}
+.alrededor{
+    margin-top: 10%;
+    border: 2px solid white;
+    margin-left: 6%;
+    margin-right: 6%;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(3px); 
+
+}
+.titulo{
+    margin-left: 6%;
+    margin-right: 6%;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px); 
 
 }

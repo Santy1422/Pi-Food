@@ -15,6 +15,7 @@ export const Recetarender =(props) => {
           <hr></hr>
           <div key={props.id} className={Style.cardbody}>
             <p className={Style.cardsubtitle}>{props.healthScore}</p>
+
             <ul className={Style.cardinfo}>
               {props.diets?.map((element, index) => (
                 <ol className={Style.ol} key={index}>
@@ -22,7 +23,8 @@ export const Recetarender =(props) => {
                 </ol>
               ))}
             </ul>
-            <Link to={"/detail/" + props.id}>
+
+            <Link className={Style.textd}to={"/detail/" + props.id}>
               <button className={Style.cardbtn}>informacion</button>
             </Link>{" "}
           </div>

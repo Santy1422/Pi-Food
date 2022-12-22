@@ -54,7 +54,7 @@ const [seleccionadas, setSeleccionadas] = useState([])
     {dietas?.map(diet => {
             return <div key={diet.name}>
               <input type='checkbox' id={diet.id} value={diet.name} onChange={handleChange}/>
-              <label >{diet.name}</label>
+              <label>{diet.name}</label>
             </div>
         })}
         </fieldset>

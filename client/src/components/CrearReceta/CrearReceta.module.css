@@ -1,21 +1,27 @@
+body{
+    color: rgb(0, 0, 0);
+
+}
 .alrededor{
     margin-top: 10%;
     border: 2px solid white;
     margin-left: 6%;
     margin-right: 6%;
-    background: rgba(45, 201, 55, 0.217);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(3px); 
+
 }
 .title {
         font-size: 1.5rem;
         font-weight: bold;
         line-height: 1.2;
-        color: #fff;
+
           }
 .label {
     font-size: 0.9rem;
     font-weight: bold;
     line-height: 1.2;
-    color: #fff;
+
 
 }   
 .errores{
@@ -26,3 +32,125 @@
     border: rgb(7, 240, 22) 5px solid;
 
 }
+.div{
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+}
+.divizq{
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+}
+.divderecho{
+    margin-top: -40px;
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+
+}
+.dietas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.input{
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+         border-radius: 20px;
+         border: 1px solid #000000;
+         color: #1fcd5f;
+         width: 350px;
+         height: 25px;
+         padding-left: 10px;
+        }
+         .Search:focus {
+         outline: none;
+         border: 1px solid #000000;
+         color: #41935e;
+    
+}
+
+.input2 {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+     border-radius: 20px;
+     border: 1px solid #000000;
+     color: #090606;
+     border: red 5px solid;
+
+     width: 350px;
+     height: 25px;
+     padding-left: 10px;
+    }
+     .Search:focus {
+     outline: none;
+     border: 1px solid #f51010;
+     color: #cd1f1f;
+
+}
+
+.textaerea{
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+     border-radius: 20px;
+     border: 1px solid #000000;
+     color: #1fcd5f;
+     width: 350px;
+     height: 60px;
+     padding-left: 10px;
+    }
+     .Search:focus {
+     outline: none;
+     border: 1px solid #000000;
+     color: #41935e;
+
+}
+.button1 {
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 6px;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 15px;
+    margin: 10px 2px;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background 0.4s, color 0.4s;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+
+  }
+
+
+  .button2 {
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 6px;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 15px;
+    margin: 10px 2px;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background 0.4s, color 0.4s;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+
+  }
+  .button:hover {
+    background: white;
+    color: black;
+  } 

@@ -34,7 +34,6 @@ router.post("/", async (req, res) => {
 })
 
 
-
 router.get("/:idReceta", async (req, res) => {
     const {idReceta } = req.params;
     try{

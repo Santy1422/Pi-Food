@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import * as actions from "../../redux/actions";
 import { Link } from "react-router-dom";
-
+import style from "./Detail.module.css"
 export const Detail = (props) =>{
   console.log(props)
      const { id } = useParams();
@@ -15,18 +15,19 @@ const recetaId = useSelector(state => state.recetaid)
 
 useEffect(() => {
   dispatch(actions.RecetaID(id));
-console.log("hola")
   }, []);
   
 
 return (
-    <div>
-<Link to='/home'>
-<button onClick={() => dispatch(actions.VaciarId())}>Regresar al home</button>                </Link>
+    <div className={style.alrededor}>
+      <div className={style.titulo}>
       <h1>{recetaId?.name}</h1>
+      <h3> Puntaje nutricional: {recetaId?.healthScore}</h3>
+      </div>
+      <div>
       <img src={recetaId?.image} alt={recetaId.name}/>
-    <h3>{recetaId?.healthScore}</h3>
-    {/* {recetaId?.diets?.map((ele, index) => <h3 key= {index}>{ele}</h3> )} */}
+    {recetaId?.diets?.map((ele, index) => <h3 key= {index}>{ele}</h3> )}
+    </div>
    <p>{recetaId?.steps}</p>
     <p><p dangerouslySetInnerHTML={ { __html: recetaId?.summary }}/></p> 
   </div>

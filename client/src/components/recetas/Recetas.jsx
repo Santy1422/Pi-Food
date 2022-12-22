@@ -16,7 +16,7 @@ const currentPage = useSelector(state => state.currentPage)
 const [loading, setLoading] = useState(false)
 
 
- const [charactersPerPage, setCharactersPerPage] = useState(9); //cuantas recetas x pagina
+ const [charactersPerPage, setCharactersPerPage] = useState(8); //cuantas recetas x pagina
  const indexOfLastCharacter = currentPage * charactersPerPage; //pagina x cantidad  recetas en pagina
  const indexOfFirsChararacter = indexOfLastCharacter - charactersPerPage;
  const currentCharacters = recetas.slice(indexOfFirsChararacter, indexOfLastCharacter); //agarra el indice del primero y del ultimo pj

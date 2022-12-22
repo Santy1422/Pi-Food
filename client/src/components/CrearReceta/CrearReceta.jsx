@@ -88,45 +88,46 @@ export const CrearReceta = (props) => {
       <h1 className={style.title}>Crear nueva receta</h1>
       <br/>
       <form onSubmit={() => handleSubmit()}>
-        <div>
+      <div className={style.div}>
+        <div className={style.divizq}>
           <label className={style.label}>Nombre del plato:</label>
           <br/>
+
           <input type="text"
           placeholder="Escribe el nombre de tu receta.."
-        name="name"  value={input.name} onChange={(e) => handleChange(e)} />
+        name="name"  value={input.name}  className={style.input} onChange={(e) => handleChange(e)} />
                   { errorInput.name ? <p>{errorInput.name}</p> : <p> {" "}</p>}
 
 
           <label className={style.label}>Descripcion:</label>
           <br/>
           
-          <textarea type="text" name="summary" placeholder="Descripcion de tu receta" value={input.summary} onChange={(e) => handleChange(e)} />
+          <textarea className={style.textaerea} type="text" name="summary" placeholder="Descripcion de tu receta" value={input.summary} onChange={(e) => handleChange(e)} />
           { input.summary.length ? errorInput.summary && (<p>{errorInput.summary}</p> ) : <p></p>}
           <br/>
 
           <label className={style.label}>Puntaje nutricional:</label>
           <br/>
 
-          <input type="text" name="healthScore" placeholder="¿Que puntaje nutricional posee?" value={input.healthScore} onChange={(e) => handleChange(e)} />
+          <input type="text" name="healthScore" className={style.input} placeholder="¿Que puntaje nutricional posee?" value={input.healthScore} onChange={(e) => handleChange(e)} />
           { input.healthScore.length ? errorInput.healthScore && (<p>{errorInput.healthScore}</p>) : <p></p>}
           <br/>
 
           <label className={style.label}>Imagen:</label>
           <br/>
 
-          <input type="text" name="image" placeholder="Por favor un enlace con la foto de tu receta" value={input.image} onChange={(e) => handleChange(e)} />
+          <input type="text" name="image" className={style.input} placeholder="Por favor un enlace con la foto de tu receta" value={input.image} onChange={(e) => handleChange(e)} />
           { input.image.length ? errorInput.image && (<p>{errorInput.image}</p>) : <p></p>}
 
 
 
           <br/>
-
-
-          <label className={style.label}>Type of Diet:</label>
+          </div>
+          <div className={style.divderecho}>
+          <label className={style.label}>Tipo de dieta:</label>
           <br/>
 
-          <div
-          >
+          <div className={style.dietas}>
             {dietas?.map((element, index) => {
               return (
                 <label key={index}>
@@ -151,13 +152,15 @@ export const CrearReceta = (props) => {
           <label className={style.label}>Pasos de preparacion:</label>
           <br/>
 
-          <textarea type="text" name="steps" placeholder="Pasos para realizar la receta" value={input.steps} onChange={(e) => handleChange(e)} />
+          <textarea type="text" name="steps" className={style.textaerea} placeholder="Pasos para realizar la receta" value={input.steps} onChange={(e) => handleChange(e)} />
           { errorInput.steps && (<p>{errorInput.steps}</p>)}
         </div>
+        </div>
         {(!Object.entries(errorInput).length) ?
-  <button type='submit' >Create Recipe</button>
- : ( <div><button type='submit'   disabled>Create Recipe</button>
-  <p >Incomplete required fields</p></div>)
+      
+  <button className={style.button2} type='submit' >Crear nueva receta</button>
+ : ( <div><button className={style.button2} type='submit'   disabled>Crear nueva receta</button>
+  <p >Completa todos los campos para crear tu nueva receta</p></div>)
             }
       </form>
     </div>

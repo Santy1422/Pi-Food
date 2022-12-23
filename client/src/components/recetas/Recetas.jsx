@@ -22,7 +22,13 @@ const currentPage = useSelector(state => state.currentPage)
  const currentCharacters = recetas.slice(indexOfFirsChararacter, indexOfLastCharacter); //agarra el indice del primero y del ultimo pj
 
  useEffect(() => {
-    dispatch(actions.TraerRec());
+  if(recetas.length){
+    setLoading(false)
+
+  }else {
+    dispatch(actions.TraerRec())
+
+  }
     const timer = setTimeout(() => {
         setLoading(false)
 

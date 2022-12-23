@@ -14,6 +14,7 @@ export const Dietas = (props) => {
 
 
   useEffect(() => {
+    if(!dietas.length)
     dispatch(actions.TraerDietas());
 
   }, []);

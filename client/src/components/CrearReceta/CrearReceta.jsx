@@ -32,6 +32,7 @@ export const CrearReceta = (props) => {
   });
 
   useEffect(() => {
+    if(!dietas.lenth)
     dispatch(actions.TraerDietas());
   }, [dispatch]);
 
@@ -164,3 +165,4 @@ export const CrearReceta = (props) => {
     </div>
   );
 };
+

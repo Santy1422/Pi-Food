@@ -15,6 +15,7 @@ const dispatch = useDispatch()
 
 
 const recetas2 = useSelector(state => state.recetas2)
+const recetas = useSelector(state => state.recetas)
 
 
 
@@ -48,7 +49,7 @@ setSearch(e.target.value)
 
 useEffect(() => {
     dispatch(actions.filterByDiets(filtro));
-
+  
   }, [search, seleccionadas])
 
 

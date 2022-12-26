@@ -6,7 +6,7 @@
   gap: 0.5em;
   padding: 1.0rem;
   min-width: 10rem;
-  background: rgba(45, 201, 55, 0.921);
+  background: white;
   color: rgb(208, 207, 207);
   border-radius: 0.4rem / 0.4rem;
   width: 100%;
@@ -30,9 +30,9 @@
 .button {
   
   background: transparent;
-  border: 2px solid white;
+  border: 2px solid rgb(12, 12, 12);
   border-radius: 10px;
-  color: white;
+  color: rgb(12, 12, 12);
   padding: 5px 20px;
   text-align: center;
   display: inline-block;
@@ -45,6 +45,6 @@
   transition: background 0.4s, color 0.4s;
 }
 .button:hover {
-  background: white;
+  background: rgb(245, 244, 244);
   color: black;
 }

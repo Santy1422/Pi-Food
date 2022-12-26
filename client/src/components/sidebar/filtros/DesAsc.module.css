@@ -8,8 +8,8 @@
   }
   
   .box select {
-    background: rgba(17, 226, 31, 0.971);
-    color: white;
+    background: white;
+    color: rgb(6, 6, 6);
     padding: 12px;
     width: 150px;
     border: 2px;

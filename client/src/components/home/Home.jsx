@@ -1,10 +1,14 @@
 import React from "react";
 import { Recetas } from "../recetas/Recetas.jsx";
-import {Nav} from "../nav/Nav.jsx"
 import { Sidebar } from "../sidebar/Sidebar.jsx";
 import styles from "./Home.module.css"
-import { Link } from "react-router-dom";
+import { useState } from "react";
 export const Home = (props) => {
+
+
+
+
+
   return(
     <div className={styles.container}>
     <div className={styles.sidebarRow}>

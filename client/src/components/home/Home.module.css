@@ -29,3 +29,17 @@ body{
     padding: 16px;
   }
 
+  @media (max-width: 480px) {
+    .container {
+      flex-direction: column;
+    }
+  
+    .sidebarColumn {
+      flex-direction: column;
+      visibility: hidden;
+    }
+    .recetasColumn {
+      margin-right: 9%;
+    }
+  
+  }

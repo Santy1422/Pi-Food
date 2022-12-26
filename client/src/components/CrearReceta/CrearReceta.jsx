@@ -5,12 +5,12 @@ import * as actions from "../../redux/actions";
 import { useHistory } from "react-router-dom";
 import  validate from "./validate.js";
 import style from "./CrearReceta.module.css"
+import { Recetarender } from "../recetas/Recetarender";
 export const CrearReceta = (props) => {
   const dispatch = useDispatch();
 
   const dietas = useSelector((state) => state.dietas);
   const recetas = useSelector((state) => state.recetas);
-
   const history = useHistory();
   const [input, setInput] = useState({
     name: "",
@@ -86,6 +86,9 @@ export const CrearReceta = (props) => {
     <div>
       <h1 className={style.title}>Crear nueva receta</h1>
       <br/>
+
+      
+
       <form onSubmit={() => handleSubmit()}>
       <div className={style.div}>
         <div className={style.divizq}>
@@ -119,7 +122,10 @@ export const CrearReceta = (props) => {
           { input.image.length ? errorInput.image && (<p>{errorInput.image}</p>) : <p></p>}
 
 
-
+          <label className={style.label}>Pasos de preparacion:</label>
+          <br/>
+          <textarea type="text" name="steps" className={style.textaerea} placeholder="Pasos para realizar la receta" value={input.steps} onChange={(e) => handleChange(e)} />
+          { errorInput.steps && (<p>{errorInput.steps}</p>)}
           <br/>
           </div>
           <div className={style.divderecho}>
@@ -131,6 +137,7 @@ export const CrearReceta = (props) => {
               return (
                 <label key={index}>
                   <input
+                  className={style.check}
                     key={element.id}
                     type="checkbox"
                     value={element.name}
@@ -144,16 +151,14 @@ export const CrearReceta = (props) => {
               );
             })}
                           { errorInput.diets && (<p>{errorInput.diets}</p>)}
+                          <Recetarender input={input}/>
 
           </div>
-          <br/>
 
-          <label className={style.label}>Pasos de preparacion:</label>
-          <br/>
-          <textarea type="text" name="steps" className={style.textaerea} placeholder="Pasos para realizar la receta" value={input.steps} onChange={(e) => handleChange(e)} />
-          { errorInput.steps && (<p>{errorInput.steps}</p>)}
         </div>
+
         </div>
+
         {(!Object.entries(errorInput).length) ?
       
   <button className={style.button2} type='submit' >Crear nueva receta</button>
@@ -161,8 +166,8 @@ export const CrearReceta = (props) => {
   <p >Completa todos los campos para crear tu nueva receta</p></div>)
             }
       </form>
+   
     </div>
     </div>
   );
 };
-

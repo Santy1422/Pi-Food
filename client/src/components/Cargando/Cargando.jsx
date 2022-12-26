@@ -3,8 +3,8 @@ import React from "react";
 export const Cargando = () =>{
 
     return ( 
-<div>
-    <p>cargando</p>
-</div>
+        <div>
+            <img src="https://i.gifer.com/XOsX.gif"></img>
+    </div>
     )
 }

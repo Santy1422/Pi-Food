@@ -11,6 +11,7 @@ export const POST_RECIPE = "POST_RECIPE"
 export const RECETA_ID = "RECETA_ID"
 export const VACIAR_ID = "VACIAR_ID"
 export const FILTRO_CREADOS = "FILTRO_CREADOS"
+export const FAVORITOS = "FAVORITOS"
 // export const FILTER_BY_VALUE = "FILTER_BY_VALUE"
 const initialState = {
     recetas: [],
@@ -34,6 +35,7 @@ switch(action.type){
             ...state,
             recetaid: action.payload
         }    
+
         case "VACIAR_ID":
             return{
                 ...state,

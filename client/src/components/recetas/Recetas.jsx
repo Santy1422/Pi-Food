@@ -15,6 +15,7 @@ const [loading, setLoading] = useState(true)
 const recetas = useSelector(state => state.recetas)  
 const currentPage = useSelector(state => state.currentPage)  
 
+const favoritos = useSelector(state => state.favoritos)  
 
  const [charactersPerPage, setCharactersPerPage] = useState(8); //cuantas recetas x pagina
  const indexOfLastCharacter = currentPage * charactersPerPage; //pagina x cantidad  recetas en pagina
@@ -22,20 +23,14 @@ const currentPage = useSelector(state => state.currentPage)
  const currentCharacters = recetas.slice(indexOfFirsChararacter, indexOfLastCharacter); //agarra el indice del primero y del ultimo pj
 
  useEffect(() => {
-  if(recetas.length){
-    setLoading(false)
-
-  }else {
-    dispatch(actions.TraerRec())
-
-  }
+    dispatch(actions.TraerRec())  
     const timer = setTimeout(() => {
         setLoading(false)
 
-    }, 3000);  
+    }, 2000);  
     return () => clearTimeout(timer);
   }, []);
-
+console.log(favoritos)
 return (
 <div>
 <br></br>

@@ -22,12 +22,12 @@ export const Dietas = (props) => {
   return (
     <div >
       <fieldset>
-        <legend>Dietas</legend>
+        <legend className={style.body}>Dietas</legend>
     {dietas?.map(diet => {
             return <div key={diet.name}>
-              <input type='checkbox' id={diet.id} value={diet.name} onChange={props.handleChange2}
+              <input type='checkbox' className={style.body} id={diet.id} value={diet.name} onChange={props.handleChange2}
 />
-              <label>{diet.name}</label>
+              <label className={style.body}>{diet.name}</label>
             </div>
         })}
         </fieldset>

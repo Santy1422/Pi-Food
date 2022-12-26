@@ -7,15 +7,16 @@ import * as actions from "../../redux/actions"
 import style from "./siderbar.module.css"
 import { NormalSearch } from "../SearchBar/NormalSearch";
 import { useState, useEffect } from "react";
-export const Sidebar = (props) =>{
 
+
+
+export const Sidebar = (props) =>{
 const [seleccionadas, setSeleccionadas] = useState([])
 const [search, setSearch] = useState("")
 const dispatch = useDispatch()    
 
 
 const recetas2 = useSelector(state => state.recetas2)
-const recetas = useSelector(state => state.recetas)
 
 
 
@@ -68,9 +69,9 @@ useEffect(() => {
             <Health/>
             <Dietas handleChange2={handleChange2}/>
             <button className={style.button} onClick={(event) => handleClick(event)}><p>Limpiar filtros</p></button>
+        </div>
+        </div>
 
-        </div>
-        </div>
         </div>
 
     )

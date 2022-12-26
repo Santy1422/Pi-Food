@@ -7,17 +7,20 @@ import {CrearReceta} from "./components/CrearReceta/CrearReceta.jsx"
 import { Detail } from './components/Detail.jsx/Detail';
 import { Nav } from './components/nav/Nav';
 import { useLocation } from 'react-router';
-
+import { Error } from './components/Cargando/Error';
 function App() {
   const location = useLocation()
   return (
     <div className="App">
-{location.pathname === '/' ? null : <Nav />}
+
+{location.pathname === '/home' || location.pathname === '/create' || location.pathname === '/detail/:id' ? <Nav /> : null }
       <Switch>
       <Route exact path="/" component={Welcome} />
       <Route exact path="/home" component={Home} />
       <Route  path="/create" component={CrearReceta} />
       <Route  path="/detail/:id" component={Detail} />
+      <Route  path="*" component={Error} />
+
       </Switch>
     </div>
   );

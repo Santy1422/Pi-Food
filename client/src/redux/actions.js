@@ -1,5 +1,5 @@
 import axios from "axios"
-import { TRAER_RECETAS, VACIAR_ID, CAMBIAR_PAGINA, BUSCAR_RECETA, TRAER_DIETAS, FILTER_DIETS, ORDENAR_POR_NOMBRE, FILTRO_SCORE , RECETA_ID} from "./reducer";
+import { TRAER_RECETAS, VACIAR_ID, CAMBIAR_PAGINA,  TRAER_DIETAS, FILTER_DIETS, ORDENAR_POR_NOMBRE, FILTRO_SCORE , RECETA_ID} from "./reducer";
 
 export const TraerRec = () => {
     return async (dispatch) => {
@@ -18,6 +18,7 @@ export const RecetaID = (id) => {
         return dispatch({type: RECETA_ID, payload: receta.data})
     }
 }
+
 export const TraerDietas = () => {
 
     return async (dispatch) => {

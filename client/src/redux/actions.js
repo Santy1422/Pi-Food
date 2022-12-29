@@ -3,18 +3,16 @@ import { TRAER_RECETAS, VACIAR_ID, CAMBIAR_PAGINA, SEARCH, SELECCIONADAS, TRAER_
 
 export const TraerRec = () => {
     return async (dispatch) => {
-        let recetas = await axios.get(`http://localhost:3001/recipes`)
+        let recetas = await axios.get(`/recipes`)
         return  dispatch({type: TRAER_RECETAS, payload: recetas.data});
       };
 
-    
 }
-
 
 export const RecetaID = (id) => {
 
     return async (dispatch) => {
-        let receta = await axios.get(`http://localhost:3001/recipes/${id}`)
+        let receta = await axios.get(`/recipes/${id}`)
         return dispatch({type: RECETA_ID, payload: receta.data})
     }
 }
@@ -22,7 +20,7 @@ export const RecetaID = (id) => {
 export const TraerDietas = () => {
 
     return async (dispatch) => {
-        let receta = await axios.get(`http://localhost:3001/diets`)
+        let receta = await axios.get(`/diets`)
         return dispatch({type: TRAER_DIETAS, payload: receta.data})
     }
 }
@@ -79,7 +77,7 @@ export const setSearch = (payload) =>{
      export const postRecipes = (payload) => {
         return async function () {
 
-            const postRecipe = await axios.post("http://localhost:3001/recipes", payload)
+            const postRecipe = await axios.post("/recipes", payload)
             return postRecipe
     
         }
@@ -87,7 +85,7 @@ export const setSearch = (payload) =>{
     export const modificar = (id, payload) => {
         return async function () {
 
-            const modificar = await axios.put("http://localhost:3001/recipes/" + id, payload)
+            const modificar = await axios.put("/recipes/" + id, payload)
             return modificar
     
         }

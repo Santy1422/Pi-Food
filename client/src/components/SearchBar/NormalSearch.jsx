@@ -2,6 +2,7 @@ import React from "react";
 import style from "./NormalSearch.module.css"
 import { useSelector } from "react-redux";
 export const NormalSearch = (props) =>{
+  
   const search = useSelector(state => state.search)
 
 

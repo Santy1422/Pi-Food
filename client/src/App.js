@@ -9,6 +9,9 @@ import { Nav } from './components/nav/Nav';
 import { useLocation } from 'react-router';
 import { Error } from './components/Cargando/Error';
 import { Modificar } from './components/CrearReceta/Modificar';
+import axios from "axios"
+axios.defaults.baseURL = "http://localhost:3001/"
+
 function App() {
   const location = useLocation()
   return (

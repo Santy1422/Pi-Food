@@ -13,6 +13,8 @@ export const Recetas = (props) => {
 
 const [loading, setLoading] = useState(true)    
 const recetas = useSelector(state => state.recetas)  
+const recetas2 = useSelector(state => state.recetas2)  
+
 const currentPage = useSelector(state => state.currentPage)  
 
  const [charactersPerPage, setCharactersPerPage] = useState(8); //cuantas recetas x pagina
@@ -23,7 +25,7 @@ const currentPage = useSelector(state => state.currentPage)
 
 
  useEffect(() => {
-if(recetas.length === 0){
+if(recetas.length === 0 && recetas2.length  === 0){
     dispatch(actions.TraerRec())  
   }
     const timer = setTimeout(() => {

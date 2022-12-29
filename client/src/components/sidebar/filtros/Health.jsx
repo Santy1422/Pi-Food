@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import * as actions from "../../../redux/actions";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import style from "./Health.module.css"
 export const Health = () => {
-
 
     const dispatch = useDispatch()
 

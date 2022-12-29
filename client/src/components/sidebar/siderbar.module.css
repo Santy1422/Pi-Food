@@ -48,3 +48,24 @@
   background: rgb(245, 244, 244);
   color: black;
 }
+
+@media (max-width: 600px) {
+  .side {
+    margin-left: -20px;
+    margin-top: 18;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .filterConteiner {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .button {
+    margin-left: 0;
+  }
+}

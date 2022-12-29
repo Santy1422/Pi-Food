@@ -6,23 +6,31 @@ import { useHistory } from "react-router-dom";
 import  validate from "./validate.js";
 import style from "./CrearReceta.module.css"
 import Style from "../sidebar/filtros/Dietas.module.css"
-import { Recetarender } from "../recetas/Recetarender";
+import { useParams } from "react-router-dom";
 
-
-export const CrearReceta = (props) => {
+export const Modificar = (props) => {
   const dispatch = useDispatch();
-
   const dietas = useSelector((state) => state.dietas);
   const recetas = useSelector((state) => state.recetas);
   const history = useHistory();
+const {id} = useParams()
+const recetaId = useSelector(state => state.recetaid)
+
+
+useEffect(() => {
+    dispatch(actions.RecetaID(id));
+
+    }, [])
+
+console.log(recetaId)
 
   const [input, setInput] = useState({
-    name: "",
-    summary: "",
-    healthScore: 10,
-    image: "",
-    diets: [],
-    steps: ""
+    name: recetaId ? recetaId?.name : "",
+    summary: recetaId ? recetaId.summary : "",
+    healthScore: recetaId ? recetaId.healthScore : 10,
+    image: recetaId ? recetaId.image : "",
+    diets: recetaId ? recetaId.diets : [],
+    steps: recetaId ? recetaId.steps : "",
 
   });
   const [errorInput, setErrorInput] = useState({
@@ -72,7 +80,7 @@ export const CrearReceta = (props) => {
 }  
 
     const handleSubmit = (event) =>{
-        dispatch(actions.postRecipes(input))
+        dispatch(actions.modificar(id, input))
         setInput({...input,
             name: "",
             summary: "",
@@ -82,13 +90,14 @@ export const CrearReceta = (props) => {
             steps: ""
     })
     alert("receta creada correctamente")
-    history.push('/home')
+    history.push('/detail/' + id)
   }
 
   return (
 <div className={style.alrededor}>
+
     <div>
-      <h1 className={style.title}>Crear nueva receta</h1>
+      <h1 className={style.title}>Modificar Recetas</h1>
       <br/>
 
       
@@ -100,7 +109,7 @@ export const CrearReceta = (props) => {
           <br/>
 
           <input type="text"
-          placeholder="Escribe el nombre de tu receta.."
+          placeholder={recetaId?.name}
         name="name"  value={input.name}  className={style.input} onChange={(e) => handleChange(e)} />
                   { errorInput.name ? <p>{errorInput.name}</p> : <p> {" "}</p>}
 
@@ -108,27 +117,27 @@ export const CrearReceta = (props) => {
           <label className={style.label}>Descripcion:</label>
           <br/>
           
-          <textarea className={style.textaerea} type="text" name="summary" placeholder="Descripcion de tu receta" value={input.summary} onChange={(e) => handleChange(e)} />
+          <textarea className={style.textaerea} type="text" name="summary"  value={input.summary} onChange={(e) => handleChange(e)} />
           { input.summary.length ? errorInput.summary && (<p>{errorInput.summary}</p> ) : <p></p>}
           <br/>
 
           <label className={style.label}>Puntaje nutricional:</label>
           <br/>
 
-          <input type="text" name="healthScore" className={style.input} placeholder="¿Que puntaje nutricional posee?" value={input.healthScore} onChange={(e) => handleChange(e)} />
+          <input type="text" name="healthScore"   value={input.healthScore} onChange={(e) => handleChange(e)} />
           { input.healthScore.length ? errorInput.healthScore && (<p>{errorInput.healthScore}</p>) : <p></p>}
           <br/>
 
           <label className={style.label}>Imagen:</label>
           <br/>
 
-          <input type="text" name="image" className={style.input} placeholder="Por favor un enlace con la foto de tu receta" value={input.image} onChange={(e) => handleChange(e)} />
+          <input type="text" name="image" className={style.input} placeholder="¿Quieres modificar la foto de tu receta?" value={input.image} onChange={(e) => handleChange(e)} />
           { input.image.length ? errorInput.image && (<p>{errorInput.image}</p>) : <p></p>}
 
 
           <label className={style.label}>Pasos de preparacion:</label>
           <br/>
-          <textarea type="text" name="steps" className={style.textaerea} placeholder="Pasos para realizar la receta" value={input.steps} onChange={(e) => handleChange(e)} />
+          <textarea type="text" name="steps" className={style.textaerea} value={input.steps} onChange={(e) => handleChange(e)} />
           { errorInput.steps && (<p>{errorInput.steps}</p>)}
           <br/>
           </div>
@@ -138,24 +147,23 @@ export const CrearReceta = (props) => {
 
           <div className={Style.diets}>
      
-     {dietas?.map((diet) => {
-       return (
-         <div key={diet.name}>
-           <input
-             className={Style.checkbox}
-             type="checkbox"
-             id={diet.id}
-             value={diet.name}
-             onChange={handleCheckChange}
-           />
-           <label htmlFor={diet.id} className={Style.name}>
-             {diet.name}
-           </label>
-         </div>
-       );
-     })}
+          {dietas?.map((diet) => {
+  return (
+    <div key={diet.name}>
+      <input
+        type="checkbox"
+        id={diet.id}
+        value={diet.name}
+        onChange={handleCheckChange}
+        checked={input.diets.includes(diet.name)}
+        />
+      <label >
+        {diet.name}
+      </label>
+    </div>
+  );
+})}
                           { errorInput.diets && (<p>{errorInput.diets}</p>)}
-                          <Recetarender input={input}/>
 
           </div>
 
@@ -165,13 +173,14 @@ export const CrearReceta = (props) => {
 
         {(!Object.entries(errorInput).length) ?
       
-  <button className={style.button2} type='submit' >Crear nueva receta</button>
- : ( <div><button className={style.button2} type='submit'   disabled>Crear nueva receta</button>
-  <p >Completa todos los campos para crear tu nueva receta</p></div>)
+  <button className={style.button2} type='submit' >Modificar Receta</button>
+ : ( <div><button className={style.button2} type='submit'   disabled>Modificar Receta</button>
+  <p ></p></div>)
             }
       </form>
    
     </div>
+
     </div>
   );
 };

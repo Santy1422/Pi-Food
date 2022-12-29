@@ -1,11 +1,10 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import * as actions from "../../redux/actions";
 import style from "./Detail.module.css"
 import { Cargando } from "../Cargando/Cargando";
-import { useState } from "react";
 import { Nav } from "../nav/Nav";
 export const Detail = (props) =>{
   
@@ -23,7 +22,8 @@ const [loading, setLoading] = useState(true)
 
     }, 3000);  
     return () => clearTimeout(timer);
-  }, []);
+  }, [dispatch]);
+
   function removeLinks(html) {
     // Crea un elemento div temporal
     const temp = document.createElement('div');
@@ -43,13 +43,25 @@ const [loading, setLoading] = useState(true)
 return (
   <><div>
     <Nav />
-  </div><div className={style.alrededor}>
+  </div>
+
+  <div className={style.alrededor}>
       {loading ? <Cargando /> :
 
-        <><div className={style.titulo}>
+        <>
+          {id.length > 6 ? 
+            <Link to={"/modificar/" + id}>
+              <button className={style.button}>Modificar </button></Link>
+          
+           : null}
+        <div className={style.titulo}>
           <h1>{recetaId?.name}</h1>
           <hr></hr>
-
+          <p>
+            
+<h3>Detalles del plato</h3>
+            <p dangerouslySetInnerHTML={{ __html: htmlWithoutLinks }} /></p>
+            
         </div><div className={style.div}>
             <div className={style.divizq}>
               <img src={recetaId?.image} alt={recetaId.name} className={style.image} />
@@ -76,9 +88,8 @@ return (
                 {recetaId?.steps}
               </fieldset>
               : <p></p>}
-          </div><p></p><p>
+          </div><p></p></>}
 
-            <p dangerouslySetInnerHTML={{ __html: htmlWithoutLinks }} /></p></>}
     </div></>
 
 )

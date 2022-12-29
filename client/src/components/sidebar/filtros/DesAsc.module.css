@@ -48,3 +48,15 @@
   .box select option {
     padding: 30px;
   }
+
+  @media (max-width: 600px) {
+    .box {
+    position: relative;
+    top: 50%;
+    margin-left: -36%;
+    left: 50%;
+
+    margin-top: 5%;
+    transform: translate(-50%, -50%);
+  }
+  }

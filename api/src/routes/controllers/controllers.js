@@ -38,8 +38,11 @@ const  {Recipe, Diets, Users}  = require("../../db");
 const BuscApi = async () =>{
 
     try{   
-    // const BuscarenApi = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=042ad0b4e08542a5a05ed730d26457c3&addRecipeInformation=true&number=100`)
-        const BuscarenApi = await axios.get(`https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5`)
+   // const BuscarenApi = await axios.get(`https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5`)
+    const BuscarenApi = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=66aca8f51d11492e84ea329eccc1bd71&addRecipeInformation=true&number=100`,
+      { headers: { "Accept-Encoding": "gzip,deflate,compress" }}
+     )
+
         let info = await BuscarenApi.data.results?.map((ele) =>{ 
             
             return{
@@ -54,11 +57,13 @@ const BuscApi = async () =>{
             }
         } ) 
         return info
+    
     } 
     catch(err){
         return err
     }
     } 
+
 
 //mapeo la db
 const buscarenDb = async () => {
@@ -202,9 +207,6 @@ const postRecipe = async (objRecipe) => {
 
 
 
-
-
-
 const nuevoUsuario = async (newuse) => {
 try{
     const {usuario, pin} = newuse
@@ -258,5 +260,5 @@ const obtenerTodosLosUsuarios = async () => {
 
     
  
- module.exports = {rece, idRece, putDietInfo,  postRecipe, nuevoUsuario, obtenerTodosLosUsuarios, buscarUsuarioPorNombreYPIN }
+ module.exports = {rece,BuscApi, buscarenDb, idRece, putDietInfo,  postRecipe, nuevoUsuario, obtenerTodosLosUsuarios,BuscApi, buscarUsuarioPorNombreYPIN, buscarenDb }
 

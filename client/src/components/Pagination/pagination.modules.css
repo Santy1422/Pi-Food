@@ -27,3 +27,10 @@
     background: rgba(0, 0, 0, 0.921);
     color: white;
 }
+@media (max-width: 600px) {
+    .pagination button {
+      width: 30px;
+      height: 30px;
+      font-size: 14px;
+    }
+  }

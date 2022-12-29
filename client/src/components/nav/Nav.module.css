@@ -4,7 +4,7 @@
     top: 0;
     height: 80px;
     margin-top: -10%;
-    width: 100%;
+    width: 107%;
     margin: 0;
     margin-left: -0.8%;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
@@ -44,7 +44,7 @@
         text-align: center;
         display: inline-block;
         font-size: 15px;
-        margin: 10px 2px;
+        /* margin: 10px 2px; */
         cursor: pointer;
         text-decoration: none;
         text-transform: uppercase;
@@ -57,6 +57,22 @@
         margin-top: -20px;
 
       }
+      .celular3{
+        visibility: hidden;
+        margin-top: -20px;
+
+      }
+      .divcel{
+        visibility: hidden;
+      }
+      .celular2{
+        visibility: hidden;
+        margin-top: -20px;
+      }
+      .botCel{
+        visibility: hidden;
+        margin-top: -20px;
+      }
 
       @media (max-width: 480px) {
         .button2 {
@@ -68,11 +84,50 @@
         }
         .celular{
           visibility: visible;
-         position: absolute;
-         top: 45px;
-         right: 0px;
+          position: relative;
+          top: -100px;
+          right: -5%;
+          margin-left: 5px;
+          z-index: 2;
+          background: transparent;
+          border: 2px solid rgb(20, 19, 19);
+          border-radius: 6px;
+          background: white;
+          color: black;
+         padding: 10px 32px;
+          text-align: center;
+          display: inline-block;
+          font-size: 15px;
+          /* margin: 10px 2px; */
+          cursor: pointer;
+          text-decoration: none;
+          text-transform: uppercase;
+          transition: background 0.4s, color 0.4s;
+          box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+ 
+         }
+        .celular2{
+          visibility: visible;
+          position: relative;
+          top: -780px;
+         right: -30%;
          margin-left: 5px;
          z-index: 2;
+         background: transparent;
+         border: 2px solid rgb(20, 19, 19);
+         border-radius: 6px;
+         background: white;
+         color: black;
+        padding: 10px 32px;
+         text-align: center;
+         display: inline-block;
+         font-size: 15px;
+         /* margin: 10px 2px; */
+         cursor: pointer;
+         text-decoration: none;
+         text-transform: uppercase;
+         transition: background 0.4s, color 0.4s;
+         box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
 
         }
         .header {   
@@ -80,5 +135,40 @@
         
           
             }
+            .celular3{
+              visibility: visible;
+             position: relative;
+             top: -100px;
+             right: -5%;
+             margin-left: 5px;
+             z-index: 2;
+             background: transparent;
+             border: 2px solid rgb(20, 19, 19);
+             border-radius: 6px;
+             background: white;
+             color: black;
+            padding: 10px 32px;
+             text-align: center;
+             display: inline-block;
+             font-size: 15px;
+             /* margin: 10px 2px; */
+             cursor: pointer;
+             text-decoration: none;
+             text-transform: uppercase;
+             transition: background 0.4s, color 0.4s;
+             box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    
+            }
+        .divcel {
+          visibility: visible;
+          position: absolute;
+
+          top: -200px;
+          right: 0px;
+          width: 100vw;
+          height: 100vh;
+        }    
+
+        
       
       }

@@ -8,6 +8,7 @@ import { Detail } from './components/Detail.jsx/Detail';
 import { Nav } from './components/nav/Nav';
 import { useLocation } from 'react-router';
 import { Error } from './components/Cargando/Error';
+import { Modificar } from './components/CrearReceta/Modificar';
 function App() {
   const location = useLocation()
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route exact path="/home" component={Home} />
       <Route  path="/create" component={CrearReceta} />
       <Route  path="/detail/:id" component={Detail} />
+      <Route  path="/modificar/:id" component={Modificar} />
       <Route  path="*" component={Error} />
 
       </Switch>

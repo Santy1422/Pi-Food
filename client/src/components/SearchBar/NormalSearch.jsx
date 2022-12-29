@@ -1,6 +1,9 @@
 import React from "react";
 import style from "./NormalSearch.module.css"
+import { useSelector } from "react-redux";
 export const NormalSearch = (props) =>{
+  const search = useSelector(state => state.search)
+
 
 return (
     <div>
@@ -9,6 +12,7 @@ return (
         placeholder="Busca tu receta"  
         type="text"
         onChange={props.handleChange}
+        value={search}
       />
       <hr></hr>
     </div>

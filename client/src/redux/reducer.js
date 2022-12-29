@@ -12,6 +12,9 @@ export const RECETA_ID = "RECETA_ID"
 export const VACIAR_ID = "VACIAR_ID"
 export const FILTRO_CREADOS = "FILTRO_CREADOS"
 export const FAVORITOS = "FAVORITOS"
+export const MODIFICAR_RECETA = "MODIFICAR_RECETA"
+export const SELECCIONADAS = "SELECCIONADAS"
+export const SEARCH = "SEARCH"
 // export const FILTER_BY_VALUE = "FILTER_BY_VALUE"
 const initialState = {
     recetas: [],
@@ -19,6 +22,8 @@ const initialState = {
     dietas: [],
     currentPage: 1,
     recetaid: [],
+    seleccionadas: [],
+    search: ""
 }
 
 function rootReducer(state = initialState, action) {
@@ -28,8 +33,13 @@ switch(action.type){
             ...state,
             recetas: action.payload,
             recetas2: action.payload,
-
         }
+        case "MODIFICAR_RECETA":
+          return{
+              ...state,
+              recetas: action.payload,
+              recetas2: action.payload,
+          }
      case "RECETA_ID":
         return{
             ...state,
@@ -39,8 +49,7 @@ switch(action.type){
         case "VACIAR_ID":
             return{
                 ...state,
-                recetaid: [],
-                
+                recetaid: [],   
 
             }  
 
@@ -64,7 +73,7 @@ switch(action.type){
     
     const allRecipe = [...state.recetas];
     const sortedLetter = allRecipe.sort((a, b) => {
-      if (action.payload === "A-Z") {
+      if (action.payload === "asc") {
         return a.name.localeCompare(b.name);
       } else {
         return b.name.localeCompare(a.name);
@@ -97,6 +106,16 @@ case FILTRO_SCORE:
         return{
             ...state
         }
+        case SELECCIONADAS:
+        return{
+            ...state,
+            seleccionadas: [...action.payload]
+        }  
+        case SEARCH:
+          return{
+              ...state,
+              search: action.payload,
+          }      
 
 
    

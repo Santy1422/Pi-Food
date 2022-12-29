@@ -164,3 +164,32 @@ justify-content: center;
     color: #41935e;
     color: black;
   } 
+  @media (max-width: 600px) {
+    .title {
+      font-size: 1.2rem;
+    }
+  
+    .label {
+      font-size: 0.8rem;
+    }
+  
+    .input,
+    .input2,
+    .textarea {
+      width: 90%;
+    }
+  
+    .button1,
+    .button2 {
+      font-size: 0.8rem;
+      padding: 5px 10px;
+    }
+
+    .div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        }
+    }
+  

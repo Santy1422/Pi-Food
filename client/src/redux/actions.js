@@ -1,5 +1,5 @@
 import axios from "axios"
-import { TRAER_RECETAS, VACIAR_ID, CAMBIAR_PAGINA,  TRAER_DIETAS, FILTER_DIETS, ORDENAR_POR_NOMBRE, FILTRO_SCORE , RECETA_ID} from "./reducer";
+import { TRAER_RECETAS, VACIAR_ID, CAMBIAR_PAGINA, SEARCH, SELECCIONADAS, TRAER_DIETAS, FILTER_DIETS, ORDENAR_POR_NOMBRE, FILTRO_SCORE , RECETA_ID} from "./reducer";
 
 export const TraerRec = () => {
     return async (dispatch) => {
@@ -63,13 +63,32 @@ export const OrdPorNombre = (payload)=> {
      } 
 
  
-
+export const setSeleccionadas = (payload) =>{
+    return {
+        type: SELECCIONADAS,
+        payload,
+    }
+}
+export const setSearch = (payload) =>{
+    return {
+        type: SEARCH,
+        payload,
+    }
+}
 
      export const postRecipes = (payload) => {
         return async function () {
 
             const postRecipe = await axios.post("http://localhost:3001/recipes", payload)
             return postRecipe
+    
+        }
+    }
+    export const modificar = (id, payload) => {
+        return async function () {
+
+            const modificar = await axios.put("http://localhost:3001/recipes/" + id, payload)
+            return modificar
     
         }
     }

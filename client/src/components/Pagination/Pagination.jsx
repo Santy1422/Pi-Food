@@ -7,6 +7,8 @@ export const Pagination = (props) => {
  const {charactersPerPage, recetas } = props
  const dispatch = useDispatch()
 
+const recetas2 = useSelector(state => state.recetas)
+
  const currentPage = useSelector(state => state.currentPage)  
     let pages = [];
     for (let i = 1; i <= Math.ceil(recetas / charactersPerPage); i++) {
@@ -17,20 +19,22 @@ export const Pagination = (props) => {
 
     return (
         <div className='pagination'>
+            { currentPage !== 1 && recetas2.length >= charactersPerPage ? 
+    <><button onClick={() => dispatch(actions.cambiarPag(currentPage - 1))}>{"<"}</button><button onClick={() => dispatch(actions.cambiarPag(currentPage - 1))}>{currentPage - 1}</button></>
+ :     <><button disable>{"<"}</button></>
+}        
 
-    
-            { pages.map((page, index) => {
-                return (
-                
-                       <button
-                        key={index}
-                        onClick={() => dispatch(actions.cambiarPag(page))}
-                        className={page == currentPage ? "active" : ""}>
-                        {page}
-                    </button> 
-                
-                );
-            })}
+         <button  className="active">{currentPage}</button>
+
+         { currentPage !== pages[pages.length-1] && recetas2.length >= charactersPerPage ? (
+        <><button onClick={() => dispatch(actions.cambiarPag(currentPage + 1))}>{currentPage + 1}</button><button onClick={() => dispatch(actions.cambiarPag(currentPage + 1))}>
+                    {">"}
+                </button></>
+  ) : (
+
+    <><button disable>||</button></>
+  )
+}
         </div>
     );
 };

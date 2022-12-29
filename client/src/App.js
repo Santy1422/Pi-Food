@@ -10,7 +10,7 @@ import { useLocation } from 'react-router';
 import { Error } from './components/Cargando/Error';
 import { Modificar } from './components/CrearReceta/Modificar';
 import axios from "axios"
-axios.defaults.baseURL = "http://localhost:3001/"
+axios.defaults.baseURL = "https://pi-food-production-3adc.up.railway.app/"
 
 function App() {
   const location = useLocation()

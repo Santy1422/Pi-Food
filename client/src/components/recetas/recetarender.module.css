@@ -11,7 +11,9 @@
   border: 2px solid white;
   border-radius: 6px;
   backdrop-filter: blur(5px); 
+  background-color: white;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+
 }
 
 @media (max-width: 480px) {
@@ -39,6 +41,8 @@
   font-size: 14px;
    backdrop-filter: blur(5px); 
   border-radius: 15px;
+  background-color: white;
+
   color: rgb(20, 20, 20);
   padding: 30px;
   display: flex;
@@ -52,6 +56,8 @@
 }
 .textd{
   text-decoration: none;
+  
+
 }
 .card:hover .cardbody {
   right: 0;
@@ -61,7 +67,7 @@
   text-transform: uppercase;
   font-size: 15px;
   color: rgb(9, 8, 8);
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .cardsubtitle {

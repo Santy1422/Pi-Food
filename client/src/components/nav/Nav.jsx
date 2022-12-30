@@ -32,7 +32,7 @@ location.pathname === '/detail/' + recetaid.id  ?
 <button className={style.buttoninfo}>Informacion</button>
 }
 
-{!celular ? 
+{ location.pathname === '/create' ? null : !celular ?
 <button className={style.celular} onClick={() => setCelular(!celular)}>|||</button> 
 : <button className={style.celular} onClick={() => setCelular(!celular)}>X</button>
 }

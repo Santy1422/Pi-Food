@@ -51,12 +51,10 @@
 
 @media (max-width: 600px) {
   .side {
-    margin-left: -20px;
-    margin-top: 18;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+        position: relative;
+        top: 70;
+        margin-top: 0;
+
   }
   .filterConteiner {
     align-items: center;

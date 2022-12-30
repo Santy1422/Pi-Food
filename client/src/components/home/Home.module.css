@@ -1,9 +1,11 @@
 body{
 	color: #E91E63;
+
 }
 .container {
     display: flex;
     flex-direction: column;
+  max-width: 98%;
   }
   
   .navRow {
@@ -32,11 +34,18 @@ body{
   @media (max-width: 480px) {
     .container {
       flex-direction: column;
-      margin-top: -60px;
+      /* margin-top: -60px; */
       height: 100%;
+      max-width: 98%;
 
     }
+    .sidebarRow {
+      display: flex;
+      flex-direction: row;
+      width: auto;
+      padding: 10px;
   
+    }
     .sidebarColumn {
       flex-direction: column;
       visibility: hidden;

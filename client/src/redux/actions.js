@@ -48,11 +48,7 @@ export const OrdPorNombre = (payload)=> {
      type: CAMBIAR_PAGINA,
     payload: Pagenumber++
     } }
-    export const cambiarPag2 = (Pagenumber) => {
-        return{
-         type: CAMBIAR_PAGINA,
-        payload: Pagenumber--
-        } }
+
     export const filterH = (payload)=> {
         return {
             type: FILTRO_SCORE,
@@ -64,6 +60,12 @@ export const OrdPorNombre = (payload)=> {
 export const setSeleccionadas = (payload) =>{
     return {
         type: SELECCIONADAS,
+        payload,
+    }
+}
+export const check = (payload) =>{
+    return {
+        type: "CHECK",
         payload,
     }
 }

@@ -15,7 +15,6 @@ export const FAVORITOS = "FAVORITOS"
 export const MODIFICAR_RECETA = "MODIFICAR_RECETA"
 export const SELECCIONADAS = "SELECCIONADAS"
 export const SEARCH = "SEARCH"
-// export const FILTER_BY_VALUE = "FILTER_BY_VALUE"
 const initialState = {
     recetas: [],
     recetas2: [],
@@ -23,7 +22,8 @@ const initialState = {
     currentPage: 1,
     recetaid: [],
     seleccionadas: [],
-    search: ""
+    search: "",
+    check: false //verifica cuando creo una receta sino debia refrescar el home
 }
 
 function rootReducer(state = initialState, action) {
@@ -45,7 +45,6 @@ switch(action.type){
             ...state,
             recetaid: action.payload
         }    
-
         case "VACIAR_ID":
             return{
                 ...state,
@@ -102,10 +101,10 @@ case FILTRO_SCORE:
 
 
 
-    case POST_RECIPE:
-        return{
-            ...state
-        }
+    // case POST_RECIPE:
+    //     return{
+    //         ...state
+    //     }
         case SELECCIONADAS:
         return{
             ...state,
@@ -115,7 +114,13 @@ case FILTRO_SCORE:
           return{
               ...state,
               search: action.payload,
-          }      
+          }   
+          
+          case "CHECK":
+            return{
+                ...state,
+                check: action.payload,
+            }        
 
 
    

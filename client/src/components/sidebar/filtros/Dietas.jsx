@@ -12,11 +12,10 @@ export const Dietas = (props) => {
 
   const dispatch = useDispatch();
 
-console.log(seleccionadas)
   useEffect(() => {
-    if(!dietas.length)
+    if(!dietas.length){
     dispatch(actions.TraerDietas());
-
+  }
   }, [dispatch]);
 
   return (

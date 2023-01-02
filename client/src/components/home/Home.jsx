@@ -2,7 +2,6 @@ import React from "react";
 import { Recetas } from "../recetas/Recetas.jsx";
 import { Sidebar } from "../sidebar/Sidebar.jsx";
 import styles from "./Home.module.css"
-import { useState } from "react";
 export const Home = (props) => {
 
 

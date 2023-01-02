@@ -27,13 +27,14 @@ const currentPage = useSelector(state => state.currentPage)
  useEffect(() => {
 if(recetas.length === 0 && recetas2.length  === 0){
     dispatch(actions.TraerRec())  
+
   }
     const timer = setTimeout(() => {
         setLoading(false)
 
     }, 2000);  
     return () => clearTimeout(timer);
-  });
+  },[]);
 
 
 return (
@@ -43,12 +44,14 @@ return (
 
 <br></br>
 
+
 <Pagination
                 charactersPerPage={charactersPerPage}
                 recetas={recetas.length}
                 currentPage={currentPage}
          />
 
+         
    {!loading ? !recetas.length ? <SinRecetas/> : <section className={style.containerCards}>
      {currentCharacters?.map((ele, index) => (
       <Recetarender 

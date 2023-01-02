@@ -35,10 +35,6 @@ export const CrearReceta = (props) => {
 
   });
 
-  useEffect(() => {
-    if(!dietas.lenth)
-    dispatch(actions.TraerDietas());
-  }, [dispatch]);
 
   const handleCheckChange = (e) => {
     if(e.target.checked){
@@ -65,12 +61,14 @@ export const CrearReceta = (props) => {
     }
 }
   const handleChange = (event) => {
+    let verificarNombre = recetas.find((ele) => ele.name === event.target.value)
+    if(verificarNombre) errorInput.name = "Nombre repetido"
+    else{
     setInput({...input,
         [event.target.name]: event.target.value,})
     setErrorInput(validate({...input,
       [event.target.name]: event.target.value,}, recetas))
-}  
-
+}  }
     const handleSubmit = (event) =>{
         dispatch(actions.postRecipes(input))
         setInput({...input,
@@ -98,38 +96,38 @@ export const CrearReceta = (props) => {
         <div className={style.divizq}>
           <label className={style.label}>Nombre del plato:</label>
           <br/>
-
+ 
           <input type="text"
           placeholder="Escribe el nombre de tu receta.."
         name="name"  value={input.name}  className={style.input} onChange={(e) => handleChange(e)} />
-                  { errorInput.name ? <p>{errorInput.name}</p> : <p> {" "}</p>}
+                  { errorInput.name ? <span className={style.ErrorName}>{errorInput.name}</span> : <p> {" "}</p>}
 
 
           <label className={style.label}>Descripcion:</label>
           <br/>
           
           <textarea className={style.textaerea} type="text" name="summary" placeholder="Descripcion de tu receta" value={input.summary} onChange={(e) => handleChange(e)} />
-          { input.summary.length ? errorInput.summary && (<p>{errorInput.summary}</p> ) : <p></p>}
+          { input.summary.length ? errorInput.summary && (<span className={style.ErrorName}>{errorInput.summary}</span> ) : <p></p>}
           <br/>
 
           <label className={style.label}>Puntaje nutricional:</label>
           <br/>
 
           <input type="text" name="healthScore" className={style.input} placeholder="¿Que puntaje nutricional posee?" value={input.healthScore} onChange={(e) => handleChange(e)} />
-          { input.healthScore.length ? errorInput.healthScore && (<p>{errorInput.healthScore}</p>) : <p></p>}
+          { input.healthScore.length ? errorInput.healthScore && (<span className={style.ErrorName}>{errorInput.healthScore}</span>) : <p></p>}
           <br/>
 
           <label className={style.label}>Imagen:</label>
           <br/>
 
           <input type="text" name="image" className={style.input} placeholder="Por favor un enlace con la foto de tu receta" value={input.image} onChange={(e) => handleChange(e)} />
-          { input.image.length ? errorInput.image && (<p>{errorInput.image}</p>) : <p></p>}
+          { input.image.length ? errorInput.image && (<span className={style.ErrorName}>{errorInput.image}</span>) : <p></p>}
 
 
           <label className={style.label}>Pasos de preparacion:</label>
           <br/>
           <textarea type="text" name="steps" className={style.textaerea} placeholder="Pasos para realizar la receta" value={input.steps} onChange={(e) => handleChange(e)} />
-          { errorInput.steps && (<p>{errorInput.steps}</p>)}
+          { errorInput.steps && (<span className={style.ErrorName}>{errorInput.steps}</span>)}
           <br/>
           </div>
           <div className={style.divderecho}>
@@ -154,7 +152,7 @@ export const CrearReceta = (props) => {
          </div>
        );
      })}
-                          { errorInput.diets && (<p>{errorInput.diets}</p>)}
+                          { errorInput.diets && (<span className={style.ErrorName}>{errorInput.diets}</span>)}
                           <Recetarender input={input}/>
 
           </div>

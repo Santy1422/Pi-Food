@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import style from "./DesAsc.module.css"
 
 
-export const DesAsc = () => {
+export const DesAsc = (props) => {
 
 
     const dispatch = useDispatch();

@@ -1,0 +1,57 @@
+body{
+	color: #E91E63;
+
+}
+.container {
+    display: flex;
+    flex-direction: column;
+  max-width: 98%;
+  }
+  
+  .navRow {
+    width: 100%;
+    padding: 16px;
+  }
+  
+  .sidebarRow {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 10px;
+
+  }
+  
+  .sidebarColumn {
+    width: 10%;
+    padding: 16px;
+  }
+  
+  .recetasColumn {
+    width: 90%;
+    padding: 16px;
+  }
+
+  @media (max-width: 480px) {
+    .container {
+      flex-direction: column;
+      /* margin-top: -60px; */
+      height: 100%;
+      max-width: 98%;
+
+    }
+    .sidebarRow {
+      display: flex;
+      flex-direction: row;
+      width: auto;
+      padding: 10px;
+  
+    }
+    .sidebarColumn {
+      flex-direction: column;
+      visibility: hidden;
+    }
+    .recetasColumn {
+      margin-right: 9%;
+    }
+  
+  }

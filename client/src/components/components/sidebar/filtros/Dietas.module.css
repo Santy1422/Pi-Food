@@ -1,0 +1,59 @@
+.body{
+    color: black;
+}
+
+.diets {
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    align-items:flex-start;
+
+  }
+  
+  .checkbox {
+    display: none; /* ocultamos la caja del checkbox */
+  }
+  
+  .name {
+    /* estilos para el botón */
+    display: inline-block;
+    padding: 0.35em 1.2em;
+    border: 0.1em solid #0f0f0f;
+    margin: 4px;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #040303;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05), 0 2px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    background-color: rgb(252, 251, 251);
+    text-align: center;
+    border: none;
+    transition: all 0.2s ease-in-out;
+    height: auto;
+    width: auto;
+    text-align: left;
+  }
+  
+  .name:hover {
+    /* estilos para el hover */
+    cursor: pointer;
+    background-color: rgb(252, 251, 251);
+    transform: translateY(-1px);
+    border-bottom: 1px solid rgb(9, 9, 9);
+  }
+  
+  .name:active {
+    /* estilos para cuando el botón está activo (pulsado) */
+    background-color: #111111;
+  }
+  
+  input:checked + .name {
+    /* estilos para cuando el checkbox está seleccionado */
+    /* background-color: #009900; */
+    transform: translateY(-1px);
+    border-bottom: 3px solid rgb(4, 4, 4);
+    background-color: rgb(252, 251, 251);
+    border-color: #0f0f0f;
+  }

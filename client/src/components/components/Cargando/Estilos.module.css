@@ -1,0 +1,33 @@
+.h1{
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 6px;
+    color: rgb(245, 243, 243);
+    padding: 10px 32px;
+    background-color: black;
+    text-align: center;
+    display: inline-block;
+    font-size: 15px;
+    margin: 10px 2px;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background 0.4s, color 0.4s;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+}
+.div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    width: 250px;
+    height: 300px;
+margin:auto
+}
+.image {
+    width: 70%;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 8px;
+  }

@@ -1,0 +1,62 @@
+.box {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-top: 5%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .box select {
+    background: white;
+    color: rgb(6, 6, 6);
+    padding: 12px;
+    width: 150px;
+    border: 2px;
+    border: 2px solid white;
+    border-radius: 10px;
+
+    font-size: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    -webkit-appearance: button;
+    appearance: button;
+    outline: none;
+  }
+  
+  .box::before {
+    content: "\f13a";
+    font-family: FontAwesome;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    font-size: 28px;
+    line-height: 45px;
+    color: rgba(255, 255, 255, 0.5);
+
+    background-color: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+  }
+  
+  .box:hover::before {
+    color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .box select option {
+    padding: 30px;
+  }
+
+
+  @media (max-width: 600px) {
+    .box {
+    position: relative;
+    top: 50%;
+    margin-left: -36%;
+    left: 50%;
+
+    margin-top: 5%;
+    transform: translate(-50%, -50%);
+  }
+  }

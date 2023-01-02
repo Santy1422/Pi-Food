@@ -1,0 +1,210 @@
+body{
+    color: rgb(0, 0, 0);
+
+}
+.alrededor{
+    margin-top: 10%;
+    border: 2px solid white;
+    margin-left: 6%;
+    margin-right: 6%;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(3px); 
+    background-color: white;
+
+}
+.title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.2;
+
+          }
+.label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-top: 18px;
+
+
+}   
+.errores{
+    border: red 5px solid;
+
+}
+.Sinerrores{
+    border: rgb(7, 240, 22) 5px solid;
+
+}
+.div{
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+}
+.divizq{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+}
+.divderecho{
+    margin-top: -40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+
+}
+.dietas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.check{
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    margin:0;
+    vertical-align: bottom;
+    position: relative;
+    top: -1px;
+    *overflow: hidden;
+}
+.input{
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+         border-radius: 20px;
+         border: 1px solid #000000;
+         color: #1fcd5f;
+         width: 350px;
+         height: 25px;
+         padding-left: 10px;
+        }
+         .Search:focus {
+         outline: none;
+         border: 1px solid #000000;
+         color: #41935e;
+    
+}
+
+.input2 {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+     border-radius: 20px;
+     border: 1px solid #000000;
+     color: #090606;
+     border: red 5px solid;
+
+     width: 350px;
+     height: 25px;
+     padding-left: 10px;
+    }
+     .Search:focus {
+     outline: none;
+     border: 1px solid #f51010;
+     color: #cd1f1f;
+
+}
+
+.textaerea{
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+     border-radius: 20px;
+     border: 1px solid #000000;
+     color: #1fcd5f;
+     width: 350px;
+     height: 60px;
+     padding-left: 10px;
+    }
+     .Search:focus {
+     outline: none;
+     border: 1px solid #000000;
+     color: #41935e;
+
+}
+.button1 {
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 6px;
+    color: #41935e;
+    padding: 10px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 15px;
+    margin: 10px 2px;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background 0.4s, color 0.4s;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+
+  }
+
+
+  .button2 {
+    background: transparent;
+    border: 2px solid #1fcd5f;
+    border-radius: 6px;
+    color: #41935e;
+    padding: 10px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 15px;
+    margin: 10px 2px;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background 0.4s, color 0.4s;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+
+  }
+  .button:hover {
+    color: #41935e;
+    color: black;
+  } 
+  @media (max-width: 600px) {
+    .title {
+      font-size: 1.2rem;
+    }
+  
+    .label {
+      font-size: 0.8rem;
+    }
+  
+    .input,
+    .input2,
+    .textarea {
+      width: 90%;
+    }
+  
+    .button1,
+    .button2 {
+      font-size: 0.8rem;
+      padding: 5px 10px;
+    }
+
+    .div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        }
+    }
+    .ErrorName {
+
+      position: relative;
+      /* max-width: 30em; */
+      width: auto;
+      /* left: 280px;
+      top: -46px; */
+  
+      background-color: #fff;
+      padding: 0.5em 0.725em;
+      font-size: 1.1em;
+      border-radius: 1rem;
+      box-shadow:    0 0.125rem 0.5rem rgba(0, 0, 0, .6), 0 0.0625rem 0.125rem rgba(0, 0, 0, .4);
+      color: rgb(110, 22, 22);
+  }
+  

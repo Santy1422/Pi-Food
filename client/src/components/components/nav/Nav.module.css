@@ -1,0 +1,111 @@
+.div{
+  background: white;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.nav{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.button {
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 6px;
+  color: black;
+  padding: 10px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 15px;
+  margin: 10px 2px;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 0.4s, color 0.4s;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+
+}
+.button2 {
+  background: transparent;
+  border: 2px solid rgb(15, 15, 15);
+  border-radius: 6px;
+  color: black;
+  padding: 10px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 15px;
+  margin: 10px 2px;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 0.4s, color 0.4s;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+}
+.buttoninfo {
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 6px;
+  color: black;
+  padding: 10px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 15px;
+  margin: 10px 2px;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 0.4s, color 0.4s;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+
+}
+.buttoninfo2 {
+  background: transparent;
+  border: 2px solid rgb(15, 15, 15);
+  border-radius: 6px;
+  color: black;
+  padding: 10px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 15px;
+  margin: 10px 2px;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 0.4s, color 0.4s;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+}
+.celular {
+  display: none; 
+
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 6px;
+  color: black;
+  padding: 10px 32px;
+  text-align: center;
+  font-size: 15px;
+  margin: 10px 2px;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 0.4s, color 0.4s;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+
+}
+
+@media (max-width: 480px) {
+  .buttoninfo2{
+display: none; 
+ }
+ .buttoninfo{
+display: none; 
+ }
+.celular{
+display: flex;
+} 
+
+
+}

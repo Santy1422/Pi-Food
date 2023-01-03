@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import * as actions from "../../redux/actions"
 import style from "./siderbar.module.css"
 import { NormalSearch } from "../SearchBar/NormalSearch";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 
 
@@ -52,7 +52,7 @@ const handleChange =(e) => {
 useEffect(() => {
 
     dispatch(actions.filterByDiets(filtro));
-  
+    dispatch(actions.cambiarPag(1));
   }, [search, seleccionadas])
 
 

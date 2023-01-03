@@ -81,6 +81,7 @@ console.log(recetaId)
 
     const handleSubmit = (event) =>{
         dispatch(actions.modificar(id, input))
+        dispatch(actions.check(true))
         setInput({...input,
             name: "",
             summary: "",

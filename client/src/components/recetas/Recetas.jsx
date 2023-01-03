@@ -14,6 +14,7 @@ export const Recetas = (props) => {
 const [loading, setLoading] = useState(true)    
 const recetas = useSelector(state => state.recetas)  
 const recetas2 = useSelector(state => state.recetas2)  
+const check = useSelector(state => state.check)  
 
 const currentPage = useSelector(state => state.currentPage)  
 
@@ -25,8 +26,9 @@ const currentPage = useSelector(state => state.currentPage)
 
 
  useEffect(() => {
-if(recetas.length === 0 && recetas2.length  === 0){
+if(recetas.length === 0 && recetas2.length  === 0 || check ){
     dispatch(actions.TraerRec())  
+    dispatch(actions.check(false))  
 
   }
     const timer = setTimeout(() => {

@@ -8,7 +8,6 @@ import style from "./CrearReceta.module.css"
 import Style from "../sidebar/filtros/Dietas.module.css"
 import { Recetarender } from "../recetas/Recetarender";
 
-
 export const CrearReceta = (props) => {
   const dispatch = useDispatch();
 
@@ -34,6 +33,12 @@ export const CrearReceta = (props) => {
     steps: ""
 
   });
+
+  React.useEffect(() => {
+    if(!dietas.length){
+   dispatch(actions.TraerDietas())  
+      }
+      },[]);
 
 
   const handleCheckChange = (e) => {
@@ -71,6 +76,8 @@ export const CrearReceta = (props) => {
 }  }
     const handleSubmit = (event) =>{
         dispatch(actions.postRecipes(input))
+        dispatch(actions.check(true))
+
         setInput({...input,
             name: "",
             summary: "",

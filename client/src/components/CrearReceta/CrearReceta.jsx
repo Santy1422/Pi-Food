@@ -14,7 +14,7 @@ export const CrearReceta = (props) => {
   const dietas = useSelector((state) => state.dietas);
   const recetas = useSelector((state) => state.recetas);
   const history = useHistory();
-
+  const [pasos, setPasos] = useState(1)
   const [input, setInput] = useState({
     name: "",
     summary: "",
@@ -93,23 +93,22 @@ export const CrearReceta = (props) => {
   return (
 <div className={style.alrededor}>
     <div>
-      <h1 className={style.title}>Crear nueva receta</h1>
-      <br/>
-
+      <><h1 className={style.title}>Crear nueva receta</h1><br /></>
       
+    
 
       <form onSubmit={() => handleSubmit()}>
       <div className={style.div}>
         <div className={style.divizq}>
           <label className={style.label}>Nombre del plato:</label>
           <br/>
- 
+
           <input type="text"
           placeholder="Escribe el nombre de tu receta.."
         name="name"  value={input.name}  className={style.input} onChange={(e) => handleChange(e)} />
                   { errorInput.name ? <span className={style.ErrorName}>{errorInput.name}</span> : <p> {" "}</p>}
 
-
+              
           <label className={style.label}>Descripcion:</label>
           <br/>
           
@@ -138,9 +137,11 @@ export const CrearReceta = (props) => {
           <br/>
           </div>
           <div className={style.divderecho}>
+          <br/>
+          <div className={style.dietasform}>
+
           <label className={style.label}>Tipo de dieta:</label>
           <br/>
-
           <div className={Style.diets}>
      
      {dietas?.map((diet) => {
@@ -159,13 +160,13 @@ export const CrearReceta = (props) => {
          </div>
        );
      })}
-                          { errorInput.diets && (<span className={style.ErrorName}>{errorInput.diets}</span>)}
+     
+                          { input.diets.length ? errorInput.diets && (<span className={style.ErrorName}>{errorInput.diets}</span>) : <span></span>}
                           <Recetarender input={input}/>
-
-          </div>
+</div>
 
         </div>
-
+        </div>
         </div>
 
         {(!Object.entries(errorInput).length) ?
@@ -175,8 +176,11 @@ export const CrearReceta = (props) => {
   <p >Completa todos los campos para crear tu nueva receta</p></div>)
             }
       </form>
-   
+    
+
     </div>
+          
     </div>
+
   );
 };

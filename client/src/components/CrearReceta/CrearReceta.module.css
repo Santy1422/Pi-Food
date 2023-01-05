@@ -26,6 +26,14 @@ body{
 
 
 }   
+.label {
+  font-size: 0.9rem;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-top: 18px;
+
+
+}   
 .errores{
     border: red 5px solid;
 
@@ -46,6 +54,7 @@ justify-content: center;
     align-items: center;
     justify-content: center;
     width: 30%;
+    margin-top: -40px;
 }
 .divderecho{
     margin-top: -40px;
@@ -114,7 +123,7 @@ justify-content: center;
      border-radius: 20px;
      border: 1px solid #000000;
      color: #1fcd5f;
-     width: 350px;
+     width: 300px;
      height: 60px;
      padding-left: 10px;
     }
@@ -164,19 +173,24 @@ justify-content: center;
     color: #41935e;
     color: black;
   } 
+.dietasform{
+  margin-top: 100px;
+}
+
   @media (max-width: 600px) {
     .title {
       font-size: 1.2rem;
     }
-  
+
     .label {
       font-size: 0.8rem;
+      
     }
-  
+
     .input,
     .input2,
     .textarea {
-      width: 90%;
+      width: 250%;
     }
   
     .button1,

@@ -1,98 +1,32 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import * as actions from "../../redux/actions";
-import { useHistory } from "react-router-dom";
-import  validate from "./validate.js";
 import style from "./CrearReceta.module.css"
 import Style from "../sidebar/filtros/Dietas.module.css"
-import { useParams } from "react-router-dom";
+import { useForm } from "./useForm";
+
 
 export const Modificar = (props) => {
-  const dispatch = useDispatch();
-  const dietas = useSelector((state) => state.dietas);
-  const recetas = useSelector((state) => state.recetas);
-  const history = useHistory();
-const {id} = useParams()
-const recetaId = useSelector(state => state.recetaid)
+
+  const {handleCheckChange, handleChange, handleSubmitUpdate,setInput, input, errorInput, dietas, dispatch, actions, id, recetaId } = useForm()
 
 
 useEffect(() => {
     dispatch(actions.RecetaID(id));
-
+    setInput({
+      name: recetaId?.name,
+      summary: recetaId?.summary,
+      healthScore: recetaId?.healthScore,
+      image: recetaId?.image,
+      diets:recetaId?.diets,
+      steps: recetaId?.steps
+    })
     }, [])
-
-console.log(recetaId)
-
-  const [input, setInput] = useState({
-    name: recetaId ? recetaId?.name : "",
-    summary: recetaId ? recetaId.summary : "",
-    healthScore: recetaId ? recetaId.healthScore : 10,
-    image: recetaId ? recetaId.image : "",
-    diets: recetaId ? recetaId.diets : [],
-    steps: recetaId ? recetaId.steps : "",
-
-  });
-  const [errorInput, setErrorInput] = useState({
-    name: "",
-    summary: "",
-    healthScore: 10,
-    image: "",
-    diets: [],
-    steps: ""
-
-  });
 
   useEffect(() => {
     if(!dietas.lenth)
     dispatch(actions.TraerDietas());
   }, [dispatch]);
-
-  const handleCheckChange = (e) => {
-    if(e.target.checked){
-        setInput({
-            ...input,
-            diets: [...input.diets, e.target.value]
-        })
-
-        setErrorInput(validate({
-            ...input,
-            diets: [...input.diets, e.target.value]
-        }, recetas 
-        ))
-    }else {
-        setInput({
-            ...input,
-            diets: input.diets.filter(t => t !== e.target.value)
-        })
-
-        setErrorInput(validate({
-            ...input,
-            diets: input.diets.filter(t => t !== e.target.value)
-        }, recetas))
-    }
-}
-  const handleChange = (event) => {
-    setInput({...input,
-        [event.target.name]: event.target.value,})
-    setErrorInput(validate({...input,
-      [event.target.name]: event.target.value,}, recetas))
-}  
-
-    const handleSubmit = (event) =>{
-        dispatch(actions.modificar(id, input))
-        dispatch(actions.check(true))
-        setInput({...input,
-            name: "",
-            summary: "",
-            healthScore: 10,
-            image: "",
-            diets: [],
-            steps: ""
-    })
-    alert("receta creada correctamente")
-    history.push('/detail/' + id)
-  }
 
   return (
 <div className={style.alrededor}>
@@ -103,7 +37,7 @@ console.log(recetaId)
 
       
 
-      <form onSubmit={() => handleSubmit()}>
+      <form onSubmit={() => handleSubmitUpdate()}>
       <div className={style.div}>
         <div className={style.divizq}>
           <label className={style.label}>Nombre del plato:</label>

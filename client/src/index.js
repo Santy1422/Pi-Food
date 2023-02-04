@@ -3,20 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter} from "react-router-dom"
-import {Provider} from "react-redux"
-import store from "./redux/store.js"
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 
 
 ReactDOM.render(
+  <GoogleOAuthProvider clientId="328480437483-vfm0d3ao0jic8at2nesuq77o3pjiufqt.apps.googleusercontent.com">
   <React.StrictMode>
-    <Provider store={store}>
-    <BrowserRouter>
     <App />
-    </BrowserRouter>
-    </Provider>
-  </React.StrictMode>,
+  </React.StrictMode>
+  </GoogleOAuthProvider>
+  ,
   document.getElementById('root')
 );
 
